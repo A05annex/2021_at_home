@@ -83,7 +83,7 @@ public class DriveCommandXbox extends CommandBase {
       NavX.HeadingInfo headingInfo = m_navx.getHeadingInfo();
       if (null != headingInfo) {
         rotation = (headingInfo.expectedHeading - headingInfo.heading) * Constants.DRIVE_ORIENTATION_kP;
-        rotation = Math.min(Math.max(rotation, -0.5), 0.5);
+        rotation = Utl.clip(rotation,-0.5,0.5);
 //        rotation = 0.0;
       } else {
         rotation = 0.0;
