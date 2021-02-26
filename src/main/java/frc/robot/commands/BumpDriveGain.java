@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import org.a05annex.util.Utl;
 
 
 public class BumpDriveGain extends CommandBase {
@@ -22,8 +23,7 @@ public class BumpDriveGain extends CommandBase {
      */
     @Override
     public void initialize() {
-        Constants.DRIVE_SPEED_GAIN += m_inc;
-        Constants.DRIVE_SPEED_GAIN = Math.min(Math.max(Constants.DRIVE_SPEED_GAIN, 0.3), 1.0);
+        Constants.DRIVE_SPEED_GAIN = Utl.clip(Constants.DRIVE_SPEED_GAIN + m_inc,0.3,1.0);
     }
 
     /**

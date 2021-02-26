@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import org.a05annex.util.Utl;
 
 
 public class BumpTwistSensitivity extends CommandBase {
@@ -22,8 +23,7 @@ public class BumpTwistSensitivity extends CommandBase {
      */
     @Override
     public void initialize() {
-        Constants.TWIST_SENSITIVITY += m_inc;
-        Constants.TWIST_SENSITIVITY = Math.min(Math.max(Constants.TWIST_SENSITIVITY, 1.0), 4.0);
+        Constants.TWIST_SENSITIVITY = Utl.clip(Constants.TWIST_SENSITIVITY + m_inc,1.0,4.0);
     }
 
     /**

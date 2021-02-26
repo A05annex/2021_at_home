@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import org.a05annex.util.Utl;
 
 
 public class BumpDriveSensitivity extends CommandBase {
@@ -22,8 +23,7 @@ public class BumpDriveSensitivity extends CommandBase {
      */
     @Override
     public void initialize() {
-        Constants.DRIVE_SPEED_SENSITIVITY += m_inc;
-        Constants.DRIVE_SPEED_SENSITIVITY = Math.min(Math.max(Constants.DRIVE_SPEED_SENSITIVITY, 1.0), 4.0);
+        Constants.DRIVE_SPEED_SENSITIVITY = Utl.clip(Constants.DRIVE_SPEED_SENSITIVITY + m_inc,1.0,4.0);
     }
 
     /**

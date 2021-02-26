@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import org.a05annex.util.Utl;
 
 
 public class BumpTwistGain extends CommandBase {
@@ -22,8 +23,7 @@ public class BumpTwistGain extends CommandBase {
      */
     @Override
     public void initialize() {
-        Constants.TWIST_GAIN += m_inc;
-        Constants.TWIST_GAIN = Math.min(Math.max(Constants.TWIST_GAIN, 0.3), 1.0);
+        Constants.TWIST_GAIN = Utl.clip(Constants.TWIST_GAIN + m_inc,0.3,1.0);
     }
 
     /**
