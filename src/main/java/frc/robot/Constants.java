@@ -199,7 +199,7 @@ public final class Constants {
     // oriented to the target while driving.
     public static double TARGET_kP = 0.5;
 
-    public static double DRIVE_ORIENTATION_kP = 0.2;
+    public static double DRIVE_ORIENTATION_kP = 0.4;
 
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
