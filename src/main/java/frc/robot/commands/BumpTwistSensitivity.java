@@ -1,3 +1,7 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -18,9 +22,8 @@ public class BumpTwistSensitivity extends CommandBase {
      */
     @Override
     public void initialize() {
-        if (Constants.TWIST_SENSITIVITY + m_inc >= 0.0) {
-            Constants.TWIST_SENSITIVITY += m_inc;
-        }
+        Constants.TWIST_SENSITIVITY += m_inc;
+        Constants.TWIST_SENSITIVITY = Math.min(Math.max(Constants.TWIST_SENSITIVITY, 1.0), 4.0);
     }
 
     /**

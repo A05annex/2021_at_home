@@ -1,3 +1,7 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -18,9 +22,8 @@ public class BumpDriveGain extends CommandBase {
      */
     @Override
     public void initialize() {
-        if (Constants.DRIVE_SPEED_GAIN + m_inc >= 0.0) {
-            Constants.DRIVE_SPEED_GAIN += m_inc;
-        }
+        Constants.DRIVE_SPEED_GAIN += m_inc;
+        Constants.DRIVE_SPEED_GAIN = Math.min(Math.max(Constants.DRIVE_SPEED_GAIN, 0.3), 1.0);
     }
 
     /**
