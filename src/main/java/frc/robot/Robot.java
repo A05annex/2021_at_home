@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.FollowPathCommand;
+import frc.robot.subsystems.ShooterSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -25,8 +26,8 @@ public class Robot extends TimedRobot {
 
   // Telemetry variables
   private double m_lastPort0 = 1000.0;
-  private int m_lastPort1 = -1;
-  private String m_lastPort2 = "";
+  private double m_lastPort1 = -1.0;
+  private double m_lastPort2 = -1.0;
   private double m_lastPort3 = -1.0;
   private double m_lastPort4 = -1.0;
   private double m_lastPort5 = -1.0;
@@ -106,14 +107,14 @@ public class Robot extends TimedRobot {
 
   private void displayTelemetry() {
     m_lastPort0 = dashboardTelemetry(0, "Heading", m_navx.getHeadingInfo().heading, m_lastPort0);
-    m_lastPort1 = dashboardTelemetry(1, "Driver", m_robotContainer.readDriverID(), m_lastPort1);
-    m_lastPort2 = dashboardTelemetry(2, "Auto", Constants.AutonomousPath.getName(), m_lastPort2);
-    // m_lastPort3 =
-    // m_lastPort4 =
-    m_lastPort5 = dashboardTelemetry(5, "Field X", m_robotContainer.getDriveSubsystem().getFieldX(), m_lastPort5);
-    m_lastPort6 = dashboardTelemetry(6, "Field Y", m_robotContainer.getDriveSubsystem().getFieldY(), m_lastPort6);
-    // m_lastPort7 =
-    // m_lastPort8 =
+    m_lastPort1 = dashboardTelemetry(1, "upSpd", ShooterSubsystem.getInstance().getUpperShooterSpeed(), m_lastPort1);
+    m_lastPort2 = dashboardTelemetry(2, "lowSpd", ShooterSubsystem.getInstance().getLowerShooterSpeed(), m_lastPort2);
+    m_lastPort3 = dashboardTelemetry(3, "Field X", m_robotContainer.getDriveSubsystem().getFieldX(), m_lastPort3);
+    m_lastPort4 = dashboardTelemetry(4, "ShootkP", Constants.SHOOTER_kP, m_lastPort4);
+    m_lastPort5 = dashboardTelemetry(5, "ShootkI", Constants.SHOOTER_kI, m_lastPort5);
+    m_lastPort6 = dashboardTelemetry(6, "ShootkFup", Constants.SHOOTER_kF_UPPER, m_lastPort6);
+    m_lastPort7 = dashboardTelemetry(7, "ShootSpd", Constants.SHOOTER_SPEED, m_lastPort7);
+    m_lastPort8 = dashboardTelemetry(8, "distance", m_robotContainer.getLimelightSubsystem().distanceToTarget(), m_lastPort8);
   }
 
   /**

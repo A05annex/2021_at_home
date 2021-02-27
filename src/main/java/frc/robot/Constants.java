@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Filesystem;
+import frc.robot.subsystems.ShooterSubsystem;
 import org.a05annex.util.Utl;
 import org.a05annex.util.geo2d.KochanekBartelsSpline;
 import org.json.simple.JSONObject;
@@ -29,14 +30,22 @@ public final class Constants {
 
     public static final class MotorControllers {
         public static final int
-                RF_DRIVE = 1,
-                RF_SPIN = 2,
-                RR_DRIVE = 3,
-                RR_SPIN = 4,
-                LR_DRIVE = 5,
-                LR_SPIN = 6,
-                LF_DRIVE = 7,
-                LF_SPIN = 8;
+            RF_DRIVE = 1,
+            RF_SPIN = 2,
+            RR_DRIVE = 3,
+            RR_SPIN = 4,
+            LR_DRIVE = 5,
+            LR_SPIN = 6,
+            LF_DRIVE = 7,
+            LF_SPIN = 8,
+            SWEEPER = 9,
+            SHOOTER_LOWER = 12,
+            SHOOTER_UPPER = 16;
+    }
+
+    public static final class Pneumatics {
+        public static final int
+            SHOOTER = 3;
     }
 
     public static final class AnalogPorts {
@@ -197,7 +206,49 @@ public final class Constants {
 
     // PID values for rotation to target using a PID on current heading and target direction to keep ths robot
     // oriented to the target while driving.
-    public static double TARGET_kP = 0.5;
+    public static double TARGET_kP = 0.8;
+
+    // Amount of time in 20ms ticks to lift up the pneumatics when running ShootCommand
+    public static int SHOOT_TICKS = 15;
+
+    // Shooter max RPMs
+    public static double MAX_UPPER_SHOOTER_RPM = 24000.0;
+    public static double MAX_LOWER_SHOOTER_RPM = 29000.0;
+
+    //Shooter PID constants
+    public static double SHOOTER_kP = 0.0;
+    public static double SHOOTER_kI = 0.0;
+    public static double SHOOTER_kF_UPPER = 0.0340;
+    public static double SHOOTER_kF_LOWER = 0.0365;
+    public static void bumpkFPlus() {
+        SHOOTER_kF_UPPER += 0.001;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpkFMinus() {
+        SHOOTER_kF_UPPER -= 0.001;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+
+    // temporary shooter speed for testing
+    public static double SHOOTER_SPEED = 0.5;
+    public static void bumpShooterSpeedPlus() {
+        SHOOTER_SPEED += 0.1;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpShooterSpeedMinus() {
+        SHOOTER_SPEED -= 0.1;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+
+    // Limelight pipeline number
+    public static final int PIPELINE_COLLECTION = 0;
+    public static final int PIPELINE_DRIVER = 1;
+    public static final int PIPELINE_SHOOTER = 2;
+
+    // Limelight angles and heights
+    public static double LIMELIGHT_ANGLE_RAD = 0.70;
+    public static double TARGET_HEIGHT = 2.31;
+    public static double LIMELIGHT_HEIGHT = 0.42;
 
     public static double DRIVE_ORIENTATION_kP = 0.2;
 

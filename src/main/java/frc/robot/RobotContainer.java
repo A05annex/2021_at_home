@@ -5,17 +5,26 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.commands.DriveCommandXbox;
 import frc.robot.commands.FollowPathCommand;
+import frc.robot.commands.RunShooter;
+import frc.robot.commands.ShootCommand;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.commands.SetLimelightPipeline;
+import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.OdometryTargetError;
 import org.a05annex.util.geo2d.KochanekBartelsSpline;
+import frc.robot.subsystems.ShooterPneumaticSubsystem;
+import frc.robot.subsystems.ShooterSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -26,9 +35,12 @@ import org.a05annex.util.geo2d.KochanekBartelsSpline;
 public class RobotContainer {
 
   private final DriveSubsystem m_driveSubsystem;
+  private final LimelightSubsystem m_limelightSubsystem;
   //private final DriveCommand m_driveCommand;
   private final DriveCommandXbox m_driveCommandXbox;
   private final OdometryTargetError m_odometryTargetError;
+  private final ShooterSubsystem m_shooterSubsystem;
+  private final ShooterPneumaticSubsystem m_shooterPneumaticSubsystem;
 
   // controllers
   private final XboxController m_xbox = new XboxController(0);
@@ -75,10 +87,13 @@ public class RobotContainer {
     // subsystems
     m_driveSubsystem = new DriveSubsystem();
     m_odometryTargetError = new OdometryTargetError(m_driveSubsystem);
+    m_shooterSubsystem = ShooterSubsystem.getInstance();
+    m_shooterPneumaticSubsystem = ShooterPneumaticSubsystem.getInstance();
+    m_limelightSubsystem = new LimelightSubsystem();
 
     // commands
     //m_driveCommand = new DriveCommand(m_stick, m_driveSubsystem);
-    m_driveCommandXbox = new DriveCommandXbox(m_xbox, m_stick, m_driveSubsystem);
+    m_driveCommandXbox = new DriveCommandXbox(m_xbox, m_stick, m_driveSubsystem, m_limelightSubsystem);
 
     // set default commands
     //m_driveSubsystem.setDefaultCommand(m_driveCommand);
@@ -102,10 +117,16 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    // m_xboxA.whenPressed(new FollowPathCommand(Filesystem.getDeployDirectory().toString() +
-    // "/figure_eight_path.json", m_driveSubsystem));
+    // m_xboxA.whenPressed(new FollowPathCommand(Filesystem.getDeployDirectory().toString() + "/figure_eight_path.json", m_driveSubsystem));
+//    m_xboxA.whenPressed(new InstantCommand(m_shooterPneumaticSubsystem::liftShooter, m_shooterSubsystem));
+//    m_xboxB.whenPressed(new InstantCommand(m_shooterPneumaticSubsystem::dropShooter, m_shooterSubsystem));
+    m_xboxA.whenPressed(new ShootCommand(m_shooterPneumaticSubsystem));
+    m_xboxRightBumper.whenHeld(new RunShooter(m_shooterSubsystem, Constants.SHOOTER_SPEED));
+    m_button5.whenPressed(new InstantCommand(Constants::bumpShooterSpeedPlus));
+    m_button3.whenPressed(new InstantCommand(Constants::bumpShooterSpeedMinus));
+    m_button6.whenPressed(new InstantCommand(Constants::bumpkFPlus));
+    m_button4.whenPressed(new InstantCommand(Constants::bumpkFMinus));
   }
-
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -138,5 +159,9 @@ public class RobotContainer {
 
   public DriveSubsystem getDriveSubsystem() {
     return m_driveSubsystem;
+  }
+
+  public LimelightSubsystem getLimelightSubsystem() {
+    return m_limelightSubsystem;
   }
 }
