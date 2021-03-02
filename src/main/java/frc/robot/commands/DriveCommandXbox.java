@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.NavX;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.IGetTargetError;
 import org.a05annex.util.Utl;
 
 public class DriveCommandXbox extends CommandBase {
@@ -20,6 +19,10 @@ public class DriveCommandXbox extends CommandBase {
   private final Joystick m_stick;
   private final DriveSubsystem m_driveSubsystem;
   private final NavX m_navx = NavX.getInstance();
+
+  private double m_lastStickX = 0.0;
+  private double m_lastStickY = 0.0;
+  private double m_lastStickTwist = 0.0;
 
   /**
    * Drive using an xbox controller, with left stick Y being forward, left stick X being strafe,
@@ -55,6 +58,15 @@ public class DriveCommandXbox extends CommandBase {
       stickX = m_stick.getX();
       stickTwist = m_stick.getTwist();
     }
+    // Limit the rate of change to reduce chance of break-away skidding.
+    stickX = Utl.clip(stickX, m_lastStickX - Constants.DRIVE_MAX_SPEED_INC, m_lastStickX + Constants.DRIVE_MAX_SPEED_INC);
+    stickY = Utl.clip(stickY, m_lastStickY - Constants.DRIVE_MAX_SPEED_INC, m_lastStickY + Constants.DRIVE_MAX_SPEED_INC);
+    stickTwist = Utl.clip(stickTwist, m_lastStickTwist - Constants.DRIVE_MAX_ROTATE_INC, m_lastStickTwist + Constants.DRIVE_MAX_ROTATE_INC);
+    m_lastStickX = stickX;
+    m_lastStickY = stickY;
+    m_lastStickTwist = stickTwist;
+
+
 
     // do deadband on speed
     double distance = Utl.length(stickY,stickX);
@@ -98,6 +110,7 @@ public class DriveCommandXbox extends CommandBase {
     }
     // find direction, if the speed is 0 then it won't rotate
     double direction = Math.atan2(stickX, stickY);
+
     m_driveSubsystem.swerveDriveFieldRelative(direction, speed, rotation);
   }
 
