@@ -72,7 +72,7 @@ public final class Constants {
     // can travel or turn in one command cycle at full speed because for path following we need to know how
     // big to make the increments along the path, and need a pretty good estimate of where the robot is for
     // making course corrections.
-    public static final double MAX_METERS_PER_SEC = 3.2;
+    public static final double MAX_METERS_PER_SEC = 2.70;
     public static final double MAX_RADIANS_PER_SEC = MAX_METERS_PER_SEC / DRIVE_RADIUS;
 
     // PID values for the spin spark motor controller PID loop
@@ -199,13 +199,13 @@ public final class Constants {
     // oriented to the target while driving.
     public static double TARGET_kP = 0.5;
 
-    public static double DRIVE_ORIENTATION_kP = 0.2;
+    public static double DRIVE_ORIENTATION_kP = 0.4;
 
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
         SLALOM("Slalom", 1, "2021_slalom.json"),
-        BOUNCE("Bounce", 2, "2021_bounce.json"),
-        LIGHTSPEED("Lightspeed", 3, "2021_lightspeed.json"),
+        BOUNCE("Short Slalom", 2, "2021_slalom_short.json"),
+        LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),
         CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
         CAL_CIRCLE_2("cal circle 2", 5, "cal_circle_2.json"),
         CAL_STRAIGHT("cal straight", 6, "cal_straight.json"),

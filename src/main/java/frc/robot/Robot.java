@@ -6,7 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.FollowPathCommand;
 
@@ -175,9 +174,9 @@ public class Robot extends TimedRobot {
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
       // if we have an autonomous command, it has a path that assumes some initial robot position and heading, and
-      // will start the robot with some forward, strafe, and rotation. We hand to set all of those things before
-      // we actually ask the robot to start moving.
-      m_autonomousCommand.initialRobot();
+      // will start the robot with some forward, strafe, and rotation. We have to set all of those things before
+      // we actually ask the robot to start moving if we want it to start moving in the right direction.
+      m_autonomousCommand.initializeRobotForPath();
       m_autonomousCommand.schedule();
     }
   }

@@ -94,55 +94,13 @@ public class DriveSubsystem extends SubsystemBase {
      * Run the swerve drive with the specified {@code  forward}, {@code strafe}, and {@code rotation} chassis
      * relative components.
      *
-     * @param forward  Drive forward. From -1 (full backwards) to 1 (full forwards.
-     * @param strafe   Strafe right. From -1 (full left)  to 1 (full right).
-     * @param rotation Clockwise rotation. From -1 (full counter-clockwise) to 1 (full clockwise).
+     * @param forward  Drive forward. From 1 (full forwards) to -1 (full backwards).
+     * @param strafe   Strafe right. From 1 (full right) to -1 (full left).
+     * @param rotation Clockwise rotation. From 1 (full clockwise) to -1 (full counter-clockwise).
      */
     public void swerveDriveComponents(double forward, double strafe,
                                        double rotation) {
         setModulesForChassisMotion(forward, strafe, rotation,true);
-//        // calculate a, b, c and d variables
-//        double a = strafe - (rotation * LENGTH_OVER_DIAGONAL);
-//        double b = strafe + (rotation * LENGTH_OVER_DIAGONAL);
-//        double c = forward - (rotation * WIDTH_OVER_DIAGONAL);
-//        double d = forward + (rotation * WIDTH_OVER_DIAGONAL);
-//
-//        // calculate wheel speeds
-//        double rfSpeed = Utl.length(b, c);
-//        double lfSpeed = Utl.length(b, d);
-//        double lrSpeed = Utl.length(a, d);
-//        double rrSpeed = Utl.length(a, c);
-//
-//        // normalize speeds
-//        double max = Utl.max(rfSpeed, lfSpeed, lrSpeed, rrSpeed);
-//        if (max > 1.0) {
-//            rfSpeed /= max;
-//            lfSpeed /= max;
-//            lrSpeed /= max;
-//            rrSpeed /= max;
-//            forward /= max;
-//            strafe /= max;
-//            rotation /= max;
-//        }
-//
-//        // if speed is small or 0, (i.e. essentially stopped), use the last angle because its next motion
-//        // will probably be very close to its current last motion - i.e. the next direction will probably
-//        // be very close to the last direction.
-//        m_RF_lastRadians = (rfSpeed < Constants.SMALL) ? m_RF_lastRadians : Math.atan2(b, c);
-//        m_LF_lastRadians = (lfSpeed < Constants.SMALL) ? m_LF_lastRadians : Math.atan2(b, d);
-//        m_LR_lastRadians = (lrSpeed < Constants.SMALL) ? m_LR_lastRadians : Math.atan2(a, d);
-//        m_RR_lastRadians = (rrSpeed < Constants.SMALL) ? m_RR_lastRadians : Math.atan2(a, c);
-//
-//        // run wheels at speeds and angles
-//        m_rf.setRadiansAndSpeed(m_RF_lastRadians, rfSpeed);
-//        m_lf.setRadiansAndSpeed(m_LF_lastRadians, lfSpeed);
-//        m_lr.setRadiansAndSpeed(m_LR_lastRadians, lrSpeed);
-//        m_rr.setRadiansAndSpeed(m_RR_lastRadians, rrSpeed);
-//
-//        // save the values we set for use in odometry calculations
-//        m_thisChassisForward = forward;
-//        m_thisChassisStrafe = strafe;
-//        m_thisChassisRotation = rotation;
     }
 
     /**
@@ -152,16 +110,17 @@ public class DriveSubsystem extends SubsystemBase {
      * smoothly without additional module reorientation. This method is used to initialize the robot before the
      * start of an autonomous path.
      *
-     * @param forward  Drive forward. From -1 (full backwards) to 1 (full forwards.
-     * @param strafe   Strafe right. From -1 (full left)  to 1 (full right).
-     * @param rotation Clockwise rotation. From -1 (full counter-clockwise) to 1 (full clockwise).
+     * @param forward  Drive forward. From 1 (full forwards) to -1 (full backwards).
+     * @param strafe   Strafe right. From 1 (full right) to -1 (full left).
+     * @param rotation Clockwise rotation. From 1 (full clockwise) to -1 (full counter-clockwise).
      */
     public void prepareForDriveComponents(double forward, double strafe,
                                           double rotation)
     {
         setModulesForChassisMotion(forward, strafe, rotation,false);
         try {
-            Thread.sleep(100);
+            // We are waiting here to make sure the modules are correctly oriented before we start moving the robot.
+            Thread.sleep(200);
         } catch (InterruptedException e) {
             //  If this is interrupted it is because the robot is being shut down - that is OK
         }
@@ -173,9 +132,9 @@ public class DriveSubsystem extends SubsystemBase {
      * {@code strafe}, and {@code rotation} chassis relative components.
      *
      *
-     * @param forward  Drive forward. From -1 (full backwards) to 1 (full forwards.
-     * @param strafe   Strafe right. From -1 (full left)  to 1 (full right).
-     * @param rotation Clockwise rotation. From -1 (full counter-clockwise) to 1 (full clockwise).
+     * @param forward  Drive forward. From 1 (full forwards) to -1 (full backwards).
+     * @param strafe   Strafe right. From 1 (full right) to -1 (full left).
+     * @param rotation Clockwise rotation. From 1 (full clockwise) to -1 (full counter-clockwise).
      * @param setSpeeds (boolean) {@code true} if module speeds should be set to run the modules, {@code false} if
      *                  this method is being called to prepare (set the direction of) the modules to run this command.
      *                  If {@code false}, module speeds will be 0.0 and there should be no robot motion.
