@@ -72,7 +72,7 @@ public final class Constants {
     // can travel or turn in one command cycle at full speed because for path following we need to know how
     // big to make the increments along the path, and need a pretty good estimate of where the robot is for
     // making course corrections.
-    public static final double MAX_METERS_PER_SEC = 2.70;
+    public static final double MAX_METERS_PER_SEC = 2.85;
     public static final double MAX_RADIANS_PER_SEC = MAX_METERS_PER_SEC / DRIVE_RADIUS;
 
     // PID values for the spin spark motor controller PID loop
@@ -203,7 +203,7 @@ public final class Constants {
     // oriented to the target while driving.
     public static double TARGET_kP = 0.5;
 
-    public static double DRIVE_ORIENTATION_kP = 0.4;
+    public static double DRIVE_ORIENTATION_kP = 0.8;
     // Maximum change in speed in 1 command cycle
     public static double DRIVE_MAX_SPEED_INC = 0.2;
     // Maximum change in rotation in 1 command cycle
