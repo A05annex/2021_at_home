@@ -95,7 +95,8 @@ public final class Constants {
     // driver enumerator
     public enum DRIVERS {
         NOLAN("Nolan", Filesystem.getDeployDirectory().toString() + "/drivers/nolan.json"),
-        KALVIN("Kalvin", Filesystem.getDeployDirectory().toString() + "/drivers/kalvin.json");
+        KALVIN("Kalvin", Filesystem.getDeployDirectory().toString() + "/drivers/kalvin.json"),
+        PROGRAMMERS("programmers", Filesystem.getDeployDirectory().toString() + "/drivers/programmers.json");
 
         private static final String USE_CONTROLLER = "USE_CONTROLLER";
         private static final String XBOX_CONTROLLER = "XBOX";
@@ -160,6 +161,9 @@ public final class Constants {
                 case 1:
                     frc.robot.Constants.currentDriver = KALVIN;
                     break;
+                case 2:
+                    frc.robot.Constants.currentDriver = PROGRAMMERS;
+                    break;
                 default:
                     frc.robot.Constants.currentDriver = KALVIN;
             }
@@ -199,13 +203,17 @@ public final class Constants {
     // oriented to the target while driving.
     public static double TARGET_kP = 0.5;
 
-    public static double DRIVE_ORIENTATION_kP = 0.4;
+    public static double DRIVE_ORIENTATION_kP = 0.8;
+    // Maximum change in speed in 1 command cycle
+    public static double DRIVE_MAX_SPEED_INC = 0.2;
+    // Maximum change in rotation in 1 command cycle
+    public static double DRIVE_MAX_ROTATE_INC = 0.2;
 
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
         SLALOM("Slalom", 1, "2021_slalom.json"),
-        BOUNCE("Bounce", 2, "2021_bounce.json"),
-        LIGHTSPEED("Lightspeed", 3, "2021_lightspeed.json"),
+        BOUNCE("Short Slalom", 2, "2021_slalom_short.json"),
+        LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),
         CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
         CAL_CIRCLE_2("cal circle 2", 5, "cal_circle_2.json"),
         CAL_STRAIGHT("cal straight", 6, "cal_straight.json"),
