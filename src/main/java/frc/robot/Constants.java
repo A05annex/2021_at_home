@@ -94,9 +94,9 @@ public final class Constants {
 
     // driver enumerator
     public enum DRIVERS {
-        NOLAN("Nolan", Filesystem.getDeployDirectory().toString() + "/drivers/nolan.json"),
-        KALVIN("Kalvin", Filesystem.getDeployDirectory().toString() + "/drivers/kalvin.json"),
-        PROGRAMMERS("programmers", Filesystem.getDeployDirectory().toString() + "/drivers/programmers.json");
+        NOLAN("Nolan", 0, Filesystem.getDeployDirectory().toString() + "/drivers/nolan.json"),
+        KALVIN("Kalvin", 1, Filesystem.getDeployDirectory().toString() + "/drivers/kalvin.json"),
+        PROGRAMMERS("programmers", 2,Filesystem.getDeployDirectory().toString() + "/drivers/programmers.json");
 
         private static final String USE_CONTROLLER = "USE_CONTROLLER";
         private static final String XBOX_CONTROLLER = "XBOX";
@@ -108,13 +108,23 @@ public final class Constants {
         private static final String TWIST_DEADBAND = "TWIST_DEADBAND";
         private static final String TWIST_SENSITIVITY = "TWIST_SENSITIVITY";
         private static final String TWIST_GAIN = "TWIST_GAIN";
+        private static final String DRIVE_MAX_SPEED_INC = "DRIVE_MAX_SPEED_INC";
+        private static final String DRIVE_MAX_ROTATE_INC = "DRIVE_MAX_ROTATE_INC";
 
-        String m_driverName;
-        String m_driverFile;
+        public static DRIVERS CURRENT_DRIVER = DRIVERS.KALVIN;
 
-        DRIVERS(String driverName, String driverFile) {
+        private final String m_driverName;
+        private final int m_id;
+        private final String m_driverFile;
+
+        DRIVERS(String driverName, int id, String driverFile) {
             m_driverName = driverName;
+            m_id = id;
             m_driverFile = driverFile;
+        }
+
+        public static String getName() {
+            return CURRENT_DRIVER.m_driverName;
         }
 
         public void load() {
@@ -129,6 +139,8 @@ public final class Constants {
                     frc.robot.Constants.TWIST_DEADBAND = parseDouble(dict, TWIST_DEADBAND, frc.robot.Constants.TWIST_DEADBAND);
                     frc.robot.Constants.TWIST_SENSITIVITY = parseDouble(dict, TWIST_SENSITIVITY, frc.robot.Constants.TWIST_SENSITIVITY);
                     frc.robot.Constants.TWIST_GAIN = parseDouble(dict, TWIST_GAIN, frc.robot.Constants.TWIST_GAIN);
+                    frc.robot.Constants.DRIVE_MAX_SPEED_INC = parseDouble(dict, DRIVE_MAX_SPEED_INC, frc.robot.Constants.DRIVE_MAX_SPEED_INC);
+                    frc.robot.Constants.DRIVE_MAX_ROTATE_INC = parseDouble(dict, DRIVE_MAX_ROTATE_INC, frc.robot.Constants.DRIVE_MAX_ROTATE_INC);
                 }
 
             } catch (IOException | ParseException | ClassCastException | NullPointerException e) {
@@ -145,7 +157,9 @@ public final class Constants {
             dict.put(TWIST_DEADBAND, frc.robot.Constants.TWIST_DEADBAND);
             dict.put(TWIST_SENSITIVITY, frc.robot.Constants.TWIST_SENSITIVITY);
             dict.put(TWIST_GAIN, frc.robot.Constants.TWIST_GAIN);
-            try (FileWriter file = new FileWriter(frc.robot.Constants.currentDriver.m_driverFile)) {
+            dict.put(DRIVE_MAX_SPEED_INC, frc.robot.Constants.DRIVE_MAX_SPEED_INC);
+            dict.put(DRIVE_MAX_ROTATE_INC, frc.robot.Constants.DRIVE_MAX_ROTATE_INC);
+            try (FileWriter file = new FileWriter(CURRENT_DRIVER.m_driverFile)) {
                 file.write(dict.toJSONString());
                 file.flush();
             } catch (IOException e) {
@@ -153,21 +167,14 @@ public final class Constants {
             }
         }
 
-        public static void setDriverAtID(int ID) {
-            switch (ID) {
-                case 0:
-                    frc.robot.Constants.currentDriver = NOLAN;
+        public static void setDriverAtID(int id) {
+            CURRENT_DRIVER = KALVIN;
+            for (DRIVERS driver : values()) {
+                if (driver.m_id == id) {
+                    CURRENT_DRIVER = driver;
                     break;
-                case 1:
-                    frc.robot.Constants.currentDriver = KALVIN;
-                    break;
-                case 2:
-                    frc.robot.Constants.currentDriver = PROGRAMMERS;
-                    break;
-                default:
-                    frc.robot.Constants.currentDriver = KALVIN;
+                }
             }
-            frc.robot.Constants.currentDriver.load();
         }
 
         public static void switchControlScheme() {
@@ -181,8 +188,6 @@ public final class Constants {
     }
 
     // used in DriveCommand
-    public static DRIVERS currentDriver = DRIVERS.KALVIN;
-
     public static String USE_CONTROLLER = DRIVERS.JOYSTICK_CONTROLLER;
 
     public static double DRIVE_DEADBAND = 0.1;
@@ -193,21 +198,22 @@ public final class Constants {
     public static double TWIST_SENSITIVITY = 2.0;
     public static double TWIST_GAIN = 1.0;
 
+    // PID values for rotation to target using a PID on current heading and target direction to keep ths robot
+    // oriented to the target while driving.
+    public static double TARGET_kP = 0.5;
+
+    public static double DRIVE_ORIENTATION_kP = 1.2;
+    // Maximum change in speed in 1 command cycle
+    public static double DRIVE_MAX_SPEED_INC = 0.25;
+    // Maximum change in rotation in 1 command cycle
+    public static double DRIVE_MAX_ROTATE_INC = 0.25;
+
     // small number for zero check
     public static final double SMALL = 0.000001;
 
     // temp variable used in DriveDistance
     public static double DRIVE_SPEED = 0.0;
 
-    // PID values for rotation to target using a PID on current heading and target direction to keep ths robot
-    // oriented to the target while driving.
-    public static double TARGET_kP = 0.5;
-
-    public static double DRIVE_ORIENTATION_kP = 1.2;
-    // Maximum change in speed in 1 command cycle kalvin: 0.5, nolan: 0.1
-    public static double DRIVE_MAX_SPEED_INC = 0.5;
-    // Maximum change in rotation in 1 command cycle
-    public static double DRIVE_MAX_ROTATE_INC = 0.5;
 
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),

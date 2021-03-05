@@ -25,8 +25,8 @@ public class Robot extends TimedRobot {
 
   // Telemetry variables
   private double m_lastPort0 = 1000.0;
-  private int m_lastPort1 = -1;
-  private int m_lastPort2 = -1;
+  private String m_lastPort1 = "";
+  private String m_lastPort2 = "";
   private double m_lastPort3 = -1.0;
   private double m_lastPort4 = -1.0;
   private double m_lastPort5 = -1.0;
@@ -106,8 +106,8 @@ public class Robot extends TimedRobot {
 
   private void displayTelemetry() {
     m_lastPort0 = dashboardTelemetry(0, "Heading", m_navx.getHeadingInfo().heading, m_lastPort0);
-    m_lastPort1 = dashboardTelemetry(1, "Driver", m_robotContainer.readDriverID(), m_lastPort1);
-    m_lastPort2 = dashboardTelemetry(2, "Auto", m_robotContainer.readAutoID(), m_lastPort2);
+    m_lastPort1 = dashboardTelemetry(1, "Driver", Constants.DRIVERS.CURRENT_DRIVER.name(), m_lastPort1);
+    m_lastPort2 = dashboardTelemetry(2, "Auto", Constants.AutonomousPath.AUTONOMOUS_PATH.name(), m_lastPort2);
     m_lastPort3 = dashboardTelemetry(3, "Field X", m_robotContainer.getDriveSubsystem().getFieldX(), m_lastPort3);
     m_lastPort4 = dashboardTelemetry(4, "Field Y", m_robotContainer.getDriveSubsystem().getFieldY(), m_lastPort4);
     m_lastPort5 = dashboardTelemetry(5, "Drv Sens:", Constants.DRIVE_SPEED_SENSITIVITY, m_lastPort5);
