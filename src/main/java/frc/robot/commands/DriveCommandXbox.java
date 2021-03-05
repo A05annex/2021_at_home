@@ -96,8 +96,11 @@ public class DriveCommandXbox extends CommandBase {
       NavX.HeadingInfo headingInfo = m_navx.getHeadingInfo();
       if (null != headingInfo) {
         rotation = (headingInfo.expectedHeading - headingInfo.heading) * Constants.DRIVE_ORIENTATION_kP;
-        rotation = Utl.clip(rotation,-0.5,0.5);
-//        rotation = 0.0;
+        // we noted that any time the robot stopped to wheels went to rotation only mode and started
+        // hunting for the expected heading. As soon as we started, all the wheels were in the wrong
+        // direction. Adding the speed multiplier (always positive, so it doesn't affect the direction)
+        // means that when the robot stops, the wheels are directed as expected.
+        rotation = Utl.clip(rotation,-0.5,0.5) * speed;
       } else {
         rotation = 0.0;
       }

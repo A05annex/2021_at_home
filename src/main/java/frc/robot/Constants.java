@@ -203,11 +203,11 @@ public final class Constants {
     // oriented to the target while driving.
     public static double TARGET_kP = 0.5;
 
-    public static double DRIVE_ORIENTATION_kP = 0.8;
-    // Maximum change in speed in 1 command cycle
-    public static double DRIVE_MAX_SPEED_INC = 0.2;
+    public static double DRIVE_ORIENTATION_kP = 1.2;
+    // Maximum change in speed in 1 command cycle kalvin: 0.5, nolan: 0.1
+    public static double DRIVE_MAX_SPEED_INC = 0.5;
     // Maximum change in rotation in 1 command cycle
-    public static double DRIVE_MAX_ROTATE_INC = 0.2;
+    public static double DRIVE_MAX_ROTATE_INC = 0.5;
 
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
@@ -238,7 +238,7 @@ public final class Constants {
         /**
          * Load this autonomous path.
          *
-         * @return The loaded path, {@code null} if the path could npot be loaded.
+         * @return The loaded path, {@code null} if the path could not be loaded.
          */
         public static KochanekBartelsSpline load() {
             KochanekBartelsSpline spline = new KochanekBartelsSpline();
