@@ -199,6 +199,9 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
+    // set limelight pipeline to shooter pipeline
+    m_robotContainer.getLimelightSubsystem().setPipeline(Constants.PIPELINE_SHOOTER);
   }
 
   /**
