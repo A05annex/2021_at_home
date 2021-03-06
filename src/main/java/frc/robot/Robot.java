@@ -112,8 +112,8 @@ public class Robot extends TimedRobot {
     m_lastPort3 = dashboardTelemetry(3, "Field X", m_robotContainer.getDriveSubsystem().getFieldX(), m_lastPort3);
     m_lastPort4 = dashboardTelemetry(4, "ShootkP", Constants.SHOOTER_kP, m_lastPort4);
     m_lastPort5 = dashboardTelemetry(5, "ShootkI", Constants.SHOOTER_kI, m_lastPort5);
-    m_lastPort6 = dashboardTelemetry(6, "ShootkFup", Constants.SHOOTER_kF_UPPER, m_lastPort6);
-    m_lastPort7 = dashboardTelemetry(7, "ShootSpd", Constants.SHOOTER_SPEED, m_lastPort7);
+    m_lastPort6 = dashboardTelemetry(6, "setUpSpd", Constants.SHOOTER_UPPER_SPEED, m_lastPort6);
+    m_lastPort7 = dashboardTelemetry(7, "setLowSpd", Constants.SHOOTER_LOWER_SPEED, m_lastPort7);
     m_lastPort8 = dashboardTelemetry(8, "distance", m_robotContainer.getLimelightSubsystem().distanceToTarget(), m_lastPort8);
   }
 

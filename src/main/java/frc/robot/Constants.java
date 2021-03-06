@@ -216,27 +216,45 @@ public final class Constants {
     public static double MAX_LOWER_SHOOTER_RPM = 29000.0;
 
     //Shooter PID constants
-    public static double SHOOTER_kP = 0.0;
+    public static double SHOOTER_kP = 0.015;
     public static double SHOOTER_kI = 0.0;
     public static double SHOOTER_kF_UPPER = 0.0340;
     public static double SHOOTER_kF_LOWER = 0.0365;
-    public static void bumpkFPlus() {
+    public static void bumpUpperkFPlus() {
         SHOOTER_kF_UPPER += 0.001;
         ShooterSubsystem.getInstance().updateAllPID();
     }
-    public static void bumpkFMinus() {
+    public static void bumpUpperkFMinus() {
         SHOOTER_kF_UPPER -= 0.001;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpkPPlus() {
+        SHOOTER_kP += 0.001;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpkPMinus() {
+        SHOOTER_kP -= 0.001;
         ShooterSubsystem.getInstance().updateAllPID();
     }
 
     // temporary shooter speed for testing
-    public static double SHOOTER_SPEED = 0.5;
-    public static void bumpShooterSpeedPlus() {
-        SHOOTER_SPEED += 0.1;
+    public static double SHOOTER_UPPER_SPEED = 0.5;
+    public static double SHOOTER_LOWER_SPEED = 0.5;
+    static double shooterInc = 0.05;
+    public static void bumpUpperShooterSpeedPlus() {
+        SHOOTER_UPPER_SPEED += shooterInc;
         ShooterSubsystem.getInstance().updateAllPID();
     }
-    public static void bumpShooterSpeedMinus() {
-        SHOOTER_SPEED -= 0.1;
+    public static void bumpUpperShooterSpeedMinus() {
+        SHOOTER_UPPER_SPEED -= shooterInc;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpLowerShooterSpeedPlus() {
+        SHOOTER_LOWER_SPEED += shooterInc;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpLowerShooterSpeedMinus() {
+        SHOOTER_LOWER_SPEED -= shooterInc;
         ShooterSubsystem.getInstance().updateAllPID();
     }
 

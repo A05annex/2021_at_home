@@ -11,14 +11,12 @@ public class RunShooter extends CommandBase {
     private double m_speed;
 
     /**
-     * Runs both shooter motors at the given power. When interrupted, set both power to 0.
+     * Runs shooter motors at the powers defined in constants. When interrupted, set both power to 0.
      * @param shooterSubsystem The shooter subsystem.
-     * @param speed (double) The speed to run at, between -1.0 and 1.0.
      */
-    public RunShooter(ShooterSubsystem shooterSubsystem, double speed) {
+    public RunShooter(ShooterSubsystem shooterSubsystem) {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         m_shooterSubsystem = shooterSubsystem;
-        m_speed = speed;
         addRequirements(m_shooterSubsystem);
     }
 
@@ -30,8 +28,8 @@ public class RunShooter extends CommandBase {
     @Override
     public void execute() {
         //TODO: set these to use m_speed
-        m_shooterSubsystem.setUpperShooter(Constants.SHOOTER_SPEED);
-        m_shooterSubsystem.setLowerShooter(Constants.SHOOTER_SPEED);
+        m_shooterSubsystem.setUpperShooter(Constants.SHOOTER_UPPER_SPEED);
+        m_shooterSubsystem.setLowerShooter(Constants.SHOOTER_LOWER_SPEED);
     }
 
     @Override
