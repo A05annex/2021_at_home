@@ -175,6 +175,7 @@ public final class Constants {
                     break;
                 }
             }
+            CURRENT_DRIVER.load();
         }
 
         public static void switchControlScheme() {
