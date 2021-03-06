@@ -22,6 +22,10 @@ public class DriveCommandXbox extends CommandBase {
   private final NavX m_navx = NavX.getInstance();
   private final IGetTargetError m_getTargetError;
 
+  private double m_lastStickX = 0.0;
+  private double m_lastStickY = 0.0;
+  private double m_lastStickTwist = 0.0;
+
   /**
    * Drive using an xbox controller, with left stick Y being forward, left stick X being strafe,
    * and right stick X being rotate.
@@ -57,6 +61,15 @@ public class DriveCommandXbox extends CommandBase {
       stickX = m_stick.getX();
       stickTwist = m_stick.getTwist();
     }
+    // Limit the rate of change to reduce chance of break-away skidding.
+    stickX = Utl.clip(stickX, m_lastStickX - Constants.DRIVE_MAX_SPEED_INC, m_lastStickX + Constants.DRIVE_MAX_SPEED_INC);
+    stickY = Utl.clip(stickY, m_lastStickY - Constants.DRIVE_MAX_SPEED_INC, m_lastStickY + Constants.DRIVE_MAX_SPEED_INC);
+    stickTwist = Utl.clip(stickTwist, m_lastStickTwist - Constants.DRIVE_MAX_ROTATE_INC, m_lastStickTwist + Constants.DRIVE_MAX_ROTATE_INC);
+    m_lastStickX = stickX;
+    m_lastStickY = stickY;
+    m_lastStickTwist = stickTwist;
+
+
 
     // do deadband on speed
     double distance = Utl.length(stickY,stickX);
@@ -97,8 +110,11 @@ public class DriveCommandXbox extends CommandBase {
         NavX.HeadingInfo headingInfo = m_navx.getHeadingInfo();
         if (null != headingInfo) {
           rotation = (headingInfo.expectedHeading - headingInfo.heading) * Constants.DRIVE_ORIENTATION_kP;
-          rotation = Utl.clip(rotation, -0.5, 0.5);
-          //        rotation = 0.0;
+          // we noted that any time the robot stopped to wheels went to rotation only mode and started
+          // hunting for the expected heading. As soon as we started, all the wheels were in the wrong
+          // direction. Adding the speed multiplier (always positive, so it doesn't affect the direction)
+          // means that when the robot stops, the wheels are directed as expected.
+          rotation = Utl.clip(rotation,-0.5,0.5) * speed;
         } else {
           rotation = 0.0;
         }
