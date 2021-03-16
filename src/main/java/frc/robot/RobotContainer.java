@@ -117,8 +117,8 @@ public class RobotContainer {
     // m_xboxA.whenPressed(new FollowPathCommand(Filesystem.getDeployDirectory().toString() + "/figure_eight_path.json", m_driveSubsystem));
 //    m_xboxA.whenPressed(new InstantCommand(m_shooterPneumaticSubsystem::liftShooter, m_shooterSubsystem));
 //    m_xboxB.whenPressed(new InstantCommand(m_shooterPneumaticSubsystem::dropShooter, m_shooterSubsystem));
-    m_xboxA.whenPressed(new ShootCommand(m_shooterPneumaticSubsystem));
-    m_xboxRightBumper.whenHeld(new RunShooter(m_shooterSubsystem));
+//    m_xboxA.whenPressed(new ShootCommand(m_shooterPneumaticSubsystem));
+    m_xboxRightBumper.whenHeld(new RunAndShootCommand());
     m_button5.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedPlus));
     m_button3.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedMinus));
     m_button6.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedPlus));

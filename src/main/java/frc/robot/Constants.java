@@ -201,7 +201,7 @@ public final class Constants {
     // used in DriveCommand
     public static DRIVERS currentDriver = DRIVERS.KALVIN;
 
-    public static String USE_CONTROLLER = DRIVERS.JOYSTICK_CONTROLLER;
+    public static String USE_CONTROLLER = DRIVERS.XBOX_CONTROLLER;
 
     public static double DRIVE_DEADBAND = 0.1;
     public static double DRIVE_SPEED_SENSITIVITY = 2.0;
@@ -234,8 +234,11 @@ public final class Constants {
     public static double MAX_UPPER_SHOOTER_RPM = 24000.0;
     public static double MAX_LOWER_SHOOTER_RPM = 29000.0;
 
+    // Constants for RunAndShoot
+    public static double SPINUP_THRESHOLD = 0.8;
+
     //Shooter PID constants
-    public static double SHOOTER_kP = 0.015;
+    public static double SHOOTER_kP = 0.002;
     public static double SHOOTER_kI = 0.0;
     public static double SHOOTER_kF_UPPER = 0.0340;
     public static double SHOOTER_kF_LOWER = 0.0365;

@@ -47,6 +47,8 @@ public class ShooterSubsystem extends SubsystemBase {
 
     private final TalonSRX m_lowerShooter = new TalonSRX(Constants.MotorControllers.SHOOTER_LOWER);
     private final TalonSRX m_upperShooter = new TalonSRX(Constants.MotorControllers.SHOOTER_UPPER);
+    private double m_lastSetLowerSpeed;
+    private double m_lastSetUpperSpeed;
 
     /**
      * Creates a new instance of this ShooterSubsystem. This constructor
@@ -65,6 +67,8 @@ public class ShooterSubsystem extends SubsystemBase {
         m_upperShooter.setSensorPhase(true);
         m_upperShooter.setInverted(true);
         updateAllPID();
+        m_lastSetUpperSpeed = 0.0;
+        m_lastSetLowerSpeed = 0.0;
     }
 
     public void updateAllPID() {
@@ -79,11 +83,13 @@ public class ShooterSubsystem extends SubsystemBase {
     }
 
     public void setLowerShooter(double speed) {
-        m_lowerShooter.set(ControlMode.Velocity, Constants.MAX_UPPER_SHOOTER_RPM * speed);
+        m_lastSetLowerSpeed = Constants.MAX_LOWER_SHOOTER_RPM * speed;
+        m_lowerShooter.set(ControlMode.Velocity, m_lastSetLowerSpeed);
     }
 
     public void setUpperShooter(double speed) {
-        m_upperShooter.set(ControlMode.Velocity, Constants.MAX_UPPER_SHOOTER_RPM * speed);
+        m_lastSetUpperSpeed = Constants.MAX_UPPER_SHOOTER_RPM * speed;
+        m_upperShooter.set(ControlMode.Velocity, m_lastSetUpperSpeed);
     }
 
     public double getUpperShooterSpeed() {
@@ -94,8 +100,19 @@ public class ShooterSubsystem extends SubsystemBase {
         return m_lowerShooter.getSelectedSensorVelocity();
     }
 
+    public boolean isLowerReady() {
+        if (getLowerShooterSpeed() > m_lastSetLowerSpeed * Constants.SPINUP_THRESHOLD) {
+            return true;
+        }
+        return false;
+    }
 
-
+    public boolean isUpperReady() {
+        if (getUpperShooterSpeed() > m_lastSetUpperSpeed * Constants.SPINUP_THRESHOLD) {
+            return true;
+        }
+        return false;
+    }
 
 }
 
