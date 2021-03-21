@@ -39,8 +39,8 @@ public final class Constants {
             LF_DRIVE = 7,
             LF_SPIN = 8,
             SWEEPER = 9,
-            SHOOTER_LOWER = 12,
-            SHOOTER_UPPER = 16;
+            SHOOTER_LOWER = 11,
+            SHOOTER_UPPER = 15;
     }
 
     public static final class Pneumatics {
@@ -235,19 +235,27 @@ public final class Constants {
     public static double MAX_LOWER_SHOOTER_RPM = 29000.0;
 
     // Constants for RunAndShoot
-    public static double SPINUP_THRESHOLD = 0.8;
+    public static double SPINUP_THRESHOLD = 0.9;
 
     //Shooter PID constants
-    public static double SHOOTER_kP = 0.002;
+    public static double SHOOTER_kP = 0.002; //0.002
     public static double SHOOTER_kI = 0.0;
-    public static double SHOOTER_kF_UPPER = 0.0340;
-    public static double SHOOTER_kF_LOWER = 0.0365;
+    public static double SHOOTER_kF_UPPER = 0.042;
+    public static double SHOOTER_kF_LOWER = 0.0335;
     public static void bumpUpperkFPlus() {
         SHOOTER_kF_UPPER += 0.001;
         ShooterSubsystem.getInstance().updateAllPID();
     }
     public static void bumpUpperkFMinus() {
         SHOOTER_kF_UPPER -= 0.001;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpLowerkFPlus() {
+        SHOOTER_kF_LOWER += 0.001;
+        ShooterSubsystem.getInstance().updateAllPID();
+    }
+    public static void bumpLowerkFMinus() {
+        SHOOTER_kF_LOWER -= 0.001;
         ShooterSubsystem.getInstance().updateAllPID();
     }
     public static void bumpkPPlus() {

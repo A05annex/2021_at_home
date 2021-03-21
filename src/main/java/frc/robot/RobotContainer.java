@@ -125,6 +125,10 @@ public class RobotContainer {
     m_button4.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedMinus));
     m_button12.whenPressed(new InstantCommand(Constants::bumpkPPlus));
     m_button11.whenPressed(new InstantCommand(Constants::bumpkPMinus));
+    m_button10.whenPressed(new InstantCommand(Constants::bumpLowerkFPlus));
+    m_button9.whenPressed(new InstantCommand(Constants::bumpLowerkFMinus));
+    m_button8.whenPressed(new InstantCommand(Constants::bumpUpperkFPlus));
+    m_button7.whenPressed(new InstantCommand(Constants::bumpUpperkFMinus));
   }
 
   /**

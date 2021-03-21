@@ -84,12 +84,20 @@ public class ShooterSubsystem extends SubsystemBase {
 
     public void setLowerShooter(double speed) {
         m_lastSetLowerSpeed = Constants.MAX_LOWER_SHOOTER_RPM * speed;
-        m_lowerShooter.set(ControlMode.Velocity, m_lastSetLowerSpeed);
+        if (m_lastSetLowerSpeed == 0.0) {
+            m_lowerShooter.set(ControlMode.PercentOutput, m_lastSetLowerSpeed);
+        } else {
+            m_lowerShooter.set(ControlMode.Velocity, m_lastSetLowerSpeed);
+        }
     }
 
     public void setUpperShooter(double speed) {
         m_lastSetUpperSpeed = Constants.MAX_UPPER_SHOOTER_RPM * speed;
-        m_upperShooter.set(ControlMode.Velocity, m_lastSetUpperSpeed);
+        if (m_lastSetUpperSpeed == 0.0) {
+            m_upperShooter.set(ControlMode.PercentOutput, m_lastSetUpperSpeed);
+        } else {
+            m_upperShooter.set(ControlMode.Velocity, m_lastSetUpperSpeed);
+        }
     }
 
     public double getUpperShooterSpeed() {
@@ -101,14 +109,14 @@ public class ShooterSubsystem extends SubsystemBase {
     }
 
     public boolean isLowerReady() {
-        if (getLowerShooterSpeed() > m_lastSetLowerSpeed * Constants.SPINUP_THRESHOLD) {
+        if (getLowerShooterSpeed() >= m_lastSetLowerSpeed * Constants.SPINUP_THRESHOLD) {
             return true;
         }
         return false;
     }
 
     public boolean isUpperReady() {
-        if (getUpperShooterSpeed() > m_lastSetUpperSpeed * Constants.SPINUP_THRESHOLD) {
+        if (getUpperShooterSpeed() >= m_lastSetUpperSpeed * Constants.SPINUP_THRESHOLD) {
             return true;
         }
         return false;
