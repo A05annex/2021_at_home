@@ -66,7 +66,12 @@ public class FollowPathCommand extends CommandBase {
         PathPoint point = m_pathFollower.getPointAt(currentTime);
         if (point == null) {
             m_isFinished = true;
-            m_driveSubsystem.swerveDriveComponents(0, 0, 0);
+            m_driveSubsystem.swerveDriveComponents(0.0, 0.0, 0.0);
+            try {
+                Thread.sleep(40);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } else {
             double errorRotation = (point.fieldHeading - NavX.getInstance().getHeading()) * Constants.DRIVE_ORIENTATION_kP;
             // TODO - The expected heading is included in the PathPoint. The path point is the instantaneous
@@ -85,6 +90,8 @@ public class FollowPathCommand extends CommandBase {
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
+        // make sure the robot stops
+        m_driveSubsystem.swerveDriveComponents(0.0, 0.0, 0.0);
     }
 
     // Returns true when the command should end.

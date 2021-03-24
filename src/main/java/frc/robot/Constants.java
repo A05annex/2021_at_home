@@ -211,7 +211,7 @@ public final class Constants {
 
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
-        SLALOM("Slalom", 1, "2021_slalom.json"),
+        SLALOM("Slalom", 1, "2021_slalom_2.json"),
         BOUNCE("Short Slalom", 2, "2021_slalom_short.json"),
         LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),
         CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
