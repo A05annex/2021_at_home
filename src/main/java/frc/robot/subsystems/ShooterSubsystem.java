@@ -90,6 +90,14 @@ public class ShooterSubsystem extends SubsystemBase {
             m_lowerShooter.set(ControlMode.Velocity, m_lastSetLowerSpeed);
         }
     }
+    public void setLowerShooterPowe(double speed) {
+        m_lastSetLowerSpeed = Constants.MAX_LOWER_SHOOTER_RPM * speed;
+        if (m_lastSetLowerSpeed == 0.0) {
+            m_lowerShooter.set(ControlMode.PercentOutput, m_lastSetLowerSpeed);
+        } else {
+            m_lowerShooter.set(ControlMode.PercentOutput, m_lastSetLowerSpeed);
+        }
+    }
 
     public void setUpperShooter(double speed) {
         m_lastSetUpperSpeed = Constants.MAX_UPPER_SHOOTER_RPM * speed;
@@ -97,6 +105,15 @@ public class ShooterSubsystem extends SubsystemBase {
             m_upperShooter.set(ControlMode.PercentOutput, m_lastSetUpperSpeed);
         } else {
             m_upperShooter.set(ControlMode.Velocity, m_lastSetUpperSpeed);
+        }
+    }
+
+    public void setUpperShooterPower(double speed) {
+        m_lastSetUpperSpeed = Constants.MAX_UPPER_SHOOTER_RPM * speed;
+        if (m_lastSetUpperSpeed == 0.0) {
+            m_upperShooter.set(ControlMode.PercentOutput, m_lastSetUpperSpeed);
+        } else {
+            m_upperShooter.set(ControlMode.PercentOutput, m_lastSetUpperSpeed);
         }
     }
 

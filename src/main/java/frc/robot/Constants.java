@@ -98,6 +98,8 @@ public final class Constants {
     public static double DRIVE_POS_kP = 0.13;
     public static double DRIVE_POS_kI = 0.0;
 
+    public static double RAMP_UP_INC = 0.25;
+
     // drive encoder tics per radian of robot rotation when rotation is controlled by position rather than speed.
     public static double DRIVE_POS_TICS_PER_RADIAN = 10.385;
 
