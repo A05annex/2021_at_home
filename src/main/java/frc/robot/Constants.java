@@ -72,6 +72,14 @@ public final class Constants {
     // can travel or turn in one command cycle at full speed because for path following we need to know how
     // big to make the increments along the path, and need a pretty good estimate of where the robot is for
     // making course corrections.
+    //
+    // When tuning for path following, lots of things like: tire wear; changes in driving surface (plywood, concrete,
+    // carpet); tire durometer, etc. change tire diameter and friction with the field surface, which, in turn
+    // changes the maximum robot speed. We use this parameter to tune the robot to the field, especially for
+    // autonomous paths. If the robot is overshooting, increase this (i.e. if the robot max speed is faster
+    // then it will get there faster, and the requested speeds will be reduced and the path will be shorted); if
+    // the robot is undershooting, then decrease it (i.e. if the robot max speed is smaller, then more speed will
+    // be requested and the path will be lengthened).
     public static final double MAX_METERS_PER_SEC = 2.85;
     public static final double MAX_RADIANS_PER_SEC = MAX_METERS_PER_SEC / DRIVE_RADIUS;
 
