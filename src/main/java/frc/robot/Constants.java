@@ -218,7 +218,7 @@ public final class Constants {
     public static double DRIVE_MAX_ROTATE_INC = 0.2;
 
     public enum AutonomousPath {
-        BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing_3.json"),
+        BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing_4.json"),
         SLALOM("Slalom", 1, "2021_slalom_3.json"),
         BOUNCE("Bounce", 2, "2021_bounce.json"),
         LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),

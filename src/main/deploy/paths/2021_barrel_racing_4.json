@@ -1,0 +1,187 @@
+{
+  "speedMultiplier": 1.55,
+  "description": "2021 at home - barrel racing. This path was hand tuned using 4 points per pylon circle.",
+  "title": "2021 at home - barrel racing",
+  "controlPoints": [
+    {
+      "field_dX": 0.0,
+      "fieldY": 1.033,
+      "field_dY": 0.2,
+      "fieldX": 2.286,
+      "fieldHeading": 0.0,
+      "time": 0.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.05,
+      "fieldY": 2.534,
+      "field_dY": 1.7,
+      "fieldX": 2.152,
+      "fieldHeading": 0.0,
+      "time": 1.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.895,
+      "fieldY": 4.305,
+      "field_dY": 1.300,
+      "fieldX": 2.286,
+      "fieldHeading": 0.0,
+      "time": 2.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.65,
+      "fieldY": 4.445,
+      "field_dY": -0.65,
+      "fieldX": 3.683,
+      "fieldHeading": 0.0,
+      "time": 3.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.65,
+      "fieldY": 3.175,
+      "field_dY": -0.65,
+      "fieldX": 3.683,
+      "fieldHeading": 0.0,
+      "time": 4.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.895,
+      "fieldY": 3.215,
+      "field_dY": 0.895,
+      "fieldX": 2.286,
+      "fieldHeading": 0.0,
+      "time": 5.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.316,
+      "fieldY": 4.953,
+      "field_dY": 1.423,
+      "fieldX": 2.286,
+      "fieldHeading": 0.0,
+      "time": 6.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.895,
+      "fieldY": 6.691,
+      "field_dY": 0.895,
+      "fieldX": 2.286,
+      "fieldHeading": 0.0,
+      "time": 7.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.65,
+      "fieldY": 6.731,
+      "field_dY": -0.65,
+      "fieldX": 0.889,
+      "fieldHeading": 0.0,
+      "time": 8.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.70,
+      "fieldY": 5.450,
+      "field_dY": -0.70,
+      "fieldX": 0.889,
+      "fieldHeading": 0.0,
+      "time": 9.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 1.1,
+      "fieldY": 5.594,
+      "field_dY": 1.1,
+      "fieldX": 2.386,
+      "fieldHeading": 0.0,
+      "time": 10.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 1.1,
+      "fieldY": 6.758,
+      "field_dY": 1.1,
+      "fieldX": 3.550,
+      "fieldHeading": 0.0,
+      "time": 11.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.75,
+      "fieldY": 8.275,
+      "field_dY": 0.75,
+      "fieldX": 3.683,
+      "fieldHeading": 0.0,
+      "time": 12.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.900,
+      "fieldY": 8.118,
+      "field_dY": -1.400,
+      "fieldX": 2.286,
+      "fieldHeading": 0.0,
+      "time": 13.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.1,
+      "fieldY": 6.501,
+      "field_dY": -1.967,
+      "fieldX": 2.386,
+      "fieldHeading": 0.0,
+      "time": 14.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.1,
+      "fieldY": 4.534,
+      "field_dY": -1.967,
+      "fieldX": 2.186,
+      "fieldHeading": 0.0,
+      "time": 15.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.05,
+      "fieldY": 2.567,
+      "field_dY": -1.967,
+      "fieldX": 2.086,
+      "fieldHeading": 0.0,
+      "time": 16.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.00,
+      "fieldY": 1.033,
+      "field_dY": -0.2,
+      "fieldX": 2.086,
+      "fieldHeading": 0.0,
+      "time": 17.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    }
+  ]
+}
