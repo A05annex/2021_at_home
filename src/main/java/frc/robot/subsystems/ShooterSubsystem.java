@@ -90,7 +90,7 @@ public class ShooterSubsystem extends SubsystemBase {
             m_lowerShooter.set(ControlMode.Velocity, m_lastSetLowerSpeed);
         }
     }
-    public void setLowerShooterPowe(double speed) {
+    public void setLowerShooterPower(double speed) {
         m_lastSetLowerSpeed = Constants.MAX_LOWER_SHOOTER_RPM * speed;
         if (m_lastSetLowerSpeed == 0.0) {
             m_lowerShooter.set(ControlMode.PercentOutput, m_lastSetLowerSpeed);
