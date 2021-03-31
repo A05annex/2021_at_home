@@ -1,5 +1,5 @@
 {
-  "speedMultiplier": 1.6,
+  "speedMultiplier": 1.4,
   "description": "2021 at home - barrel racing. This path was hand tuned using 4 points per pylon circle.",
   "title": "2021 at home - barrel racing",
   "controlPoints": [
@@ -34,9 +34,9 @@
       "derivativesEdited": true
     },
     {
-      "field_dX": 0.562,
+      "field_dX": 0.60,
       "fieldY": 4.445,
-      "field_dY": -0.562,
+      "field_dY": -0.60,
       "fieldX": 3.683,
       "fieldHeading": 0.0,
       "time": 3.0,
@@ -44,9 +44,9 @@
       "derivativesEdited": true
     },
     {
-      "field_dX": -0.562,
+      "field_dX": -0.60,
       "fieldY": 3.175,
-      "field_dY": -0.562,
+      "field_dY": -0.60,
       "fieldX": 3.683,
       "fieldHeading": 0.0,
       "time": 4.0,
@@ -84,9 +84,9 @@
       "derivativesEdited": true
     },
     {
-      "field_dX": -0.562,
+      "field_dX": -0.60,
       "fieldY": 6.731,
-      "field_dY": -0.562,
+      "field_dY": -0.60,
       "fieldX": 0.889,
       "fieldHeading": 0.0,
       "time": 8.0,
@@ -94,9 +94,9 @@
       "derivativesEdited": true
     },
     {
-      "field_dX": 0.562,
+      "field_dX": 0.60,
       "fieldY": 5.461,
-      "field_dY": -0.562,
+      "field_dY": -0.60,
       "fieldX": 0.889,
       "fieldHeading": 0.0,
       "time": 9.0,
@@ -157,7 +157,7 @@
       "field_dX": 0.0,
       "fieldY": 4.534,
       "field_dY": -1.967,
-      "fieldX": 2.286,
+      "fieldX": 2.186,
       "fieldHeading": -0.003968233139033229,
       "time": 15.0,
       "field_dHeading": 0.0,
@@ -167,7 +167,7 @@
       "field_dX": 0.0,
       "fieldY": 2.567,
       "field_dY": -1.967,
-      "fieldX": 2.286,
+      "fieldX": 2.086,
       "fieldHeading": 0.0,
       "time": 16.0,
       "field_dHeading": 0.0021825282264682764,
@@ -176,8 +176,8 @@
     {
       "field_dX": 0.0,
       "fieldY": 0.800,
-      "field_dY": -0.5,
-      "fieldX": 2.286,
+      "field_dY": -0.2,
+      "fieldX": 1.986,
       "fieldHeading": 0.0,
       "time": 17.0,
       "field_dHeading": 0.0,

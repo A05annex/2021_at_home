@@ -1,5 +1,5 @@
 {
-  "speedMultiplier": 1.0,
+  "speedMultiplier": 1.45,
   "description": "2021 at home - slalom. This path was hand tuned using 4 points per pylon circle.",
   "title": "2021 at home - slalom",
   "controlPoints": [
@@ -147,7 +147,7 @@
       "field_dX": -0.562,
       "fieldY": 2.159,
       "field_dY": -0.562,
-      "fieldX": 2.413,
+      "fieldX": 2.213,
       "fieldHeading": 0.0,
       "time": 14.0,
       "field_dHeading": 0.0,
@@ -157,7 +157,7 @@
       "field_dX": 0.0,
       "fieldY": 0.5330748091603059,
       "field_dY": -0.1,
-      "fieldX": 2.286,
+      "fieldX": 2.086,
       "fieldHeading": 0.0,
       "time": 15.0,
       "field_dHeading": 0.0,

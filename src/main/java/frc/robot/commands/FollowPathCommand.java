@@ -68,7 +68,12 @@ public class FollowPathCommand extends CommandBase {
             m_isFinished = true;
             m_driveSubsystem.swerveDriveComponents(0.0, 0.0, 0.0);
             try {
-                Thread.sleep(40);
+                Thread.sleep(10);
+                m_driveSubsystem.swerveDriveComponents(0.0, 0.0, 0.0);
+                Thread.sleep(10);
+                m_driveSubsystem.swerveDriveComponents(0.0, 0.0, 0.0);
+                Thread.sleep(10);
+                m_driveSubsystem.swerveDriveComponents(0.0, 0.0, 0.0);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

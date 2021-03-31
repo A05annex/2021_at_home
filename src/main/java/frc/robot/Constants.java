@@ -80,7 +80,7 @@ public final class Constants {
     // then it will get there faster, and the requested speeds will be reduced and the path will be shorted); if
     // the robot is undershooting, then decrease it (i.e. if the robot max speed is smaller, then more speed will
     // be requested and the path will be lengthened).
-    public static final double MAX_METERS_PER_SEC = 2.85;
+    public static final double MAX_METERS_PER_SEC = 3.05;
     public static final double MAX_RADIANS_PER_SEC = MAX_METERS_PER_SEC / DRIVE_RADIUS;
 
     // PID values for the spin spark motor controller PID loop
@@ -218,9 +218,9 @@ public final class Constants {
     public static double DRIVE_MAX_ROTATE_INC = 0.2;
 
     public enum AutonomousPath {
-        BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
-        SLALOM("Slalom", 1, "2021_slalom_2.json"),
-        BOUNCE("Short Slalom", 2, "2021_slalom_short.json"),
+        BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing_3.json"),
+        SLALOM("Slalom", 1, "2021_slalom_3.json"),
+        BOUNCE("Bounce", 2, "2021_bounce.json"),
         LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),
         CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
         CAL_CIRCLE_2("cal circle 2", 5, "cal_circle_2.json"),
