@@ -195,6 +195,20 @@ public final class Constants {
     public static double DRIVE_SPEED_SENSITIVITY = 2.0;
     public static double DRIVE_SPEED_GAIN = 0.5;
 
+    public static double SAVED_DRIVE_SPEED_GAIN;
+    private static boolean boost = false;
+    public static void maxDriveGain() {
+        if (!boost) {
+            SAVED_DRIVE_SPEED_GAIN = DRIVE_SPEED_GAIN;
+            DRIVE_SPEED_GAIN = 1.0;
+            boost = true;
+        } else {
+            DRIVE_SPEED_GAIN = SAVED_DRIVE_SPEED_GAIN;
+            boost = false;
+        }
+
+    }
+
     public static double TWIST_DEADBAND = 0.1;
     public static double TWIST_SENSITIVITY = 2.0;
     public static double TWIST_GAIN = 1.0;

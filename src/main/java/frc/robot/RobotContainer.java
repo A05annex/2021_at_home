@@ -116,6 +116,8 @@ public class RobotContainer {
 
     m_button7.whenPressed(new InstantCommand(Constants.DRIVERS::save));
     m_button8.whenPressed(new InstantCommand(Constants.DRIVERS::switchControlScheme));
+
+    m_xboxA.whenPressed(new InstantCommand(Constants::maxDriveGain));
   }
 
 
