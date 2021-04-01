@@ -270,8 +270,8 @@ public final class Constants {
     }
 
     // temporary shooter speed for testing
-    public static double SHOOTER_UPPER_SPEED = 0.5;
-    public static double SHOOTER_LOWER_SPEED = 0.5;
+    public static double SHOOTER_UPPER_SPEED = 0.6;
+    public static double SHOOTER_LOWER_SPEED = 0.6;
     static double shooterInc = 0.05;
     public static void bumpUpperShooterSpeedPlus() {
         SHOOTER_UPPER_SPEED += shooterInc;
@@ -299,6 +299,11 @@ public final class Constants {
     public static double LIMELIGHT_ANGLE_RAD = 0.70;
     public static double TARGET_HEIGHT = 2.31;
     public static double LIMELIGHT_HEIGHT = 0.42;
+    public static double LIMELIGHT_OFFSET = Math.toRadians(2.89);
+
+    // Shooting challenge paths
+    public static String FORWARD_PATH_FILE = "shoot_forward.json";
+    public static String BACKWARD_PATH_FILE = "shoot_backward.json";
 
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
@@ -308,7 +313,8 @@ public final class Constants {
         CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
         CAL_CIRCLE_2("cal circle 2", 5, "cal_circle_2.json"),
         CAL_STRAIGHT("cal straight", 6, "cal_straight.json"),
-        CAL_ROTATE("cal rotate", 7, "cal_rotate.json");
+        CAL_ROTATE("cal rotate", 7, "cal_rotate.json"),
+        SHOOT_FORWARD("shoot forward", 8, "shoot_forward.json");
 
         static AutonomousPath AUTONOMOUS_PATH = AutonomousPath.CAL_STRAIGHT;
 

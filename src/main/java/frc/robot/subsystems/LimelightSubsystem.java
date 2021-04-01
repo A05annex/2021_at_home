@@ -76,6 +76,6 @@ public class LimelightSubsystem extends SubsystemBase implements IGetTargetError
   }
 
   public double GetTargetHeadingError() {
-    return m_x;
+    return m_x - Constants.LIMELIGHT_OFFSET;
   }
 }

@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.FollowPathCommand;
+import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 
 /**
@@ -106,11 +107,11 @@ public class Robot extends TimedRobot {
   }
 
   private void displayTelemetry() {
-    m_lastPort0 = dashboardTelemetry(0, "Heading", m_navx.getHeadingInfo().heading, m_lastPort0);
-//    m_lastPort1 = dashboardTelemetry(1, "upSpd", ShooterSubsystem.getInstance().getUpperShooterSpeed(), m_lastPort1);
-//    m_lastPort2 = dashboardTelemetry(2, "lowSpd", ShooterSubsystem.getInstance().getLowerShooterSpeed(), m_lastPort2);
-    m_lastPort3 = dashboardTelemetry(3, "Field X", m_robotContainer.getDriveSubsystem().getFieldX(), m_lastPort3);
-    m_lastPort4 = dashboardTelemetry(4, "UpkF", Constants.SHOOTER_kF_UPPER, m_lastPort4);
+    m_lastPort0 = dashboardTelemetry(0, "Heading", m_robotContainer.getDriveSubsystem().getFieldHeading(), m_lastPort0);
+    m_lastPort1 = dashboardTelemetry(1, "upSpd", ShooterSubsystem.getInstance().getUpperShooterSpeed(), m_lastPort1);
+    m_lastPort2 = dashboardTelemetry(2, "lowSpd", ShooterSubsystem.getInstance().getLowerShooterSpeed(), m_lastPort2);
+    m_lastPort3 = dashboardTelemetry(3, "HeadError", m_robotContainer.getLimelightSubsystem().GetTargetHeadingError(), m_lastPort3);
+    m_lastPort4 = dashboardTelemetry(4, "LimeX", m_robotContainer.getLimelightSubsystem().getX(), m_lastPort4);
     m_lastPort5 = dashboardTelemetry(5, "ShootkI", Constants.SHOOTER_kI, m_lastPort5);
     m_lastPort6 = dashboardTelemetry(6, "setUpSpd", Constants.SHOOTER_UPPER_SPEED, m_lastPort6);
     m_lastPort7 = dashboardTelemetry(7, "setLowSpd", Constants.SHOOTER_LOWER_SPEED, m_lastPort7);

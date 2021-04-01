@@ -7,12 +7,11 @@ import frc.robot.subsystems.ShooterPneumaticSubsystem;
 
 public class ShootCommand extends CommandBase {
 
-    private final ShooterPneumaticSubsystem m_shooterPneumaticSubsystem;
+    private final ShooterPneumaticSubsystem m_shooterPneumaticSubsystem = ShooterPneumaticSubsystem.getInstance();
     private int ticksElapsed;
 
-    public ShootCommand(ShooterPneumaticSubsystem shooterPneumaticSubsystem) {
-        // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
-        m_shooterPneumaticSubsystem = shooterPneumaticSubsystem;
+    public ShootCommand() {
+        // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem);
         addRequirements(m_shooterPneumaticSubsystem);
     }
 

@@ -118,17 +118,21 @@ public class RobotContainer {
 //    m_xboxA.whenPressed(new InstantCommand(m_shooterPneumaticSubsystem::liftShooter, m_shooterSubsystem));
 //    m_xboxB.whenPressed(new InstantCommand(m_shooterPneumaticSubsystem::dropShooter, m_shooterSubsystem));
 //    m_xboxA.whenPressed(new ShootCommand(m_shooterPneumaticSubsystem));
-    m_xboxRightBumper.whenHeld(new RunAndShootCommand());
+//    m_xboxRightBumper.whenHeld(new RunAndShootCommand());
+//    m_xboxA.whenPressed(new FollowPathCommand(Constants.AutonomousPath.load(), m_driveSubsystem));
+
+    m_xboxRightBumper.whenPressed(new ShootCommand());
+    m_xboxA.whenPressed(new RunShooterForTimeCommand(60.0));
     m_button5.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedPlus));
     m_button3.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedMinus));
     m_button6.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedPlus));
     m_button4.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedMinus));
-    m_button12.whenPressed(new InstantCommand(Constants::bumpkPPlus));
-    m_button11.whenPressed(new InstantCommand(Constants::bumpkPMinus));
-    m_button10.whenPressed(new InstantCommand(Constants::bumpLowerkFPlus));
-    m_button9.whenPressed(new InstantCommand(Constants::bumpLowerkFMinus));
-    m_button8.whenPressed(new InstantCommand(Constants::bumpUpperkFPlus));
-    m_button7.whenPressed(new InstantCommand(Constants::bumpUpperkFMinus));
+//    m_button12.whenPressed(new InstantCommand(Constants::bumpkPPlus));
+//    m_button11.whenPressed(new InstantCommand(Constants::bumpkPMinus));
+//    m_button10.whenPressed(new InstantCommand(Constants::bumpLowerkFPlus));
+//    m_button9.whenPressed(new InstantCommand(Constants::bumpLowerkFMinus));
+//    m_button8.whenPressed(new InstantCommand(Constants::bumpUpperkFPlus));
+//    m_button7.whenPressed(new InstantCommand(Constants::bumpUpperkFMinus));
   }
 
   /**
