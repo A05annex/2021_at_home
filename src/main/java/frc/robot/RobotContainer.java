@@ -123,6 +123,10 @@ public class RobotContainer {
 
     m_xboxRightBumper.whenPressed(new ShootCommand());
     m_xboxA.whenPressed(new RunShooterForTimeCommand(60.0));
+    m_xboxB.whenPressed(new RunCollectorCommand(1.0));
+    m_xboxY.whenPressed(new RunCollectorCommand(0.0));
+    m_xboxX.whenPressed(new RunCollectorCommand(-1.0));
+
     m_button5.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedPlus));
     m_button3.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedMinus));
     m_button6.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedPlus));
