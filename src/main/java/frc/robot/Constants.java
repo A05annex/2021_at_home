@@ -207,7 +207,7 @@ public final class Constants {
 
     public static double DRIVE_DEADBAND = 0.1;
     public static double DRIVE_SPEED_SENSITIVITY = 2.0;
-    public static double DRIVE_SPEED_GAIN = 0.5;
+    public static double DRIVE_SPEED_GAIN = 0.8;
 
     public static double TWIST_DEADBAND = 0.1;
     public static double TWIST_SENSITIVITY = 2.0;
@@ -230,7 +230,7 @@ public final class Constants {
     public static double TARGET_kP = 0.8;
 
     // Amount of time in 20ms ticks to lift up the pneumatics when running ShootCommand
-    public static int SHOOT_TICKS = 15;
+    public static int SHOOT_TICKS = 20;
 
     // Shooter max RPMs
     public static double MAX_UPPER_SHOOTER_RPM = 24000.0;
