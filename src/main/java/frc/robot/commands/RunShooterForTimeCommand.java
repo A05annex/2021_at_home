@@ -31,11 +31,13 @@ public class RunShooterForTimeCommand extends CommandBase {
         if (last_lower < Constants.SHOOTER_LOWER_SPEED) { // TODO: replace this with optimal speed for power port challenge shooting
             last_lower += Constants.RAMP_UP_INC;
         }
+        // TODO: change back
         m_shooterSubsystem.setLowerShooter(last_lower);
 
         if (last_upper < Constants.SHOOTER_UPPER_SPEED) { // TODO: replace this with optimal speed for power port challenge shooting
             last_upper += Constants.RAMP_UP_INC;
         }
+        // TODO: change back
         m_shooterSubsystem.setUpperShooter(last_upper);
     }
 

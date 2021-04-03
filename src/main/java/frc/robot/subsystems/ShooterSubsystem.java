@@ -91,12 +91,7 @@ public class ShooterSubsystem extends SubsystemBase {
         }
     }
     public void setLowerShooterPower(double speed) {
-        m_lastSetLowerSpeed = Constants.MAX_LOWER_SHOOTER_RPM * speed;
-        if (m_lastSetLowerSpeed == 0.0) {
-            m_lowerShooter.set(ControlMode.PercentOutput, m_lastSetLowerSpeed);
-        } else {
-            m_lowerShooter.set(ControlMode.PercentOutput, m_lastSetLowerSpeed);
-        }
+        m_lowerShooter.set(ControlMode.PercentOutput, speed);
     }
 
     public void setUpperShooter(double speed) {
@@ -109,12 +104,7 @@ public class ShooterSubsystem extends SubsystemBase {
     }
 
     public void setUpperShooterPower(double speed) {
-        m_lastSetUpperSpeed = Constants.MAX_UPPER_SHOOTER_RPM * speed;
-        if (m_lastSetUpperSpeed == 0.0) {
-            m_upperShooter.set(ControlMode.PercentOutput, m_lastSetUpperSpeed);
-        } else {
-            m_upperShooter.set(ControlMode.PercentOutput, m_lastSetUpperSpeed);
-        }
+        m_upperShooter.set(ControlMode.PercentOutput, speed);
     }
 
     public double getUpperShooterSpeed() {
