@@ -270,8 +270,8 @@ public final class Constants {
     }
 
     // temporary shooter speed for testing
-    public static double SHOOTER_UPPER_SPEED = 0.6;
-    public static double SHOOTER_LOWER_SPEED = 0.6;
+    public static double SHOOTER_UPPER_SPEED = 0.5;
+    public static double SHOOTER_LOWER_SPEED = 0.5;
     static double shooterInc = 0.05;
     public static void bumpUpperShooterSpeedPlus() {
         SHOOTER_UPPER_SPEED += shooterInc;

@@ -65,7 +65,7 @@ public class DriveCommandXbox extends CommandBase {
     stickX = Utl.clip(stickX, m_lastStickX - Constants.DRIVE_MAX_SPEED_INC, m_lastStickX + Constants.DRIVE_MAX_SPEED_INC);
     stickY = Utl.clip(stickY, m_lastStickY - Constants.DRIVE_MAX_SPEED_INC, m_lastStickY + Constants.DRIVE_MAX_SPEED_INC);
     stickTwist = Utl.clip(stickTwist, m_lastStickTwist - Constants.DRIVE_MAX_ROTATE_INC, m_lastStickTwist + Constants.DRIVE_MAX_ROTATE_INC);
-    m_lastStickX = stickX;
+    m_lastStickX = stickX * 0.5; //TODO: undo this
     m_lastStickY = stickY;
     m_lastStickTwist = stickTwist;
 

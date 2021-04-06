@@ -2,21 +2,20 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.subsystems.ShooterPneumaticSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 
 
 public class RunShooter extends CommandBase {
 
-    private ShooterSubsystem m_shooterSubsystem;
+    private ShooterSubsystem m_shooterSubsystem = ShooterSubsystem.getInstance();
     private double m_speed;
 
     /**
      * Runs shooter motors at the powers defined in constants. When interrupted, set both power to 0.
-     * @param shooterSubsystem The shooter subsystem.
      */
-    public RunShooter(ShooterSubsystem shooterSubsystem) {
-        // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
-        m_shooterSubsystem = shooterSubsystem;
+    public RunShooter() {
+        // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem);
         addRequirements(m_shooterSubsystem);
     }
 
