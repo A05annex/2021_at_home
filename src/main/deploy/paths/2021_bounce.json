@@ -1,1 +1,137 @@
-{"description":"No description provided.","title":"untitled","controlPoints":[{"field_dX":0.9100318906605942,"fieldY":0.8319908883826894,"field_dY":3.12962186788155,"fieldX":2.2416082004555813,"fieldHeading":0.0,"time":0.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":0.0,"fieldY":2.374605922551255,"field_dY":0.22195899772209593,"fieldX":1.26498861047836,"fieldHeading":0.0,"time":1.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":0.15537129840546626,"fieldY":2.87401366742597,"field_dY":1.1985785876993162,"fieldX":2.452469248291572,"fieldHeading":0.0,"time":2.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":-0.13317539863325578,"fieldY":3.7729476082004574,"field_dY":1.8422596810933936,"fieldX":3.9728883826879278,"fieldHeading":0.0,"time":3.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":-0.8434441913439628,"fieldY":4.538706150341688,"field_dY":-0.044391799544419186,"fieldX":2.5412528473804104,"fieldHeading":0.0,"time":4.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":-0.02219589977221048,"fieldY":4.516510250569478,"field_dY":0.3107425968109325,"fieldX":1.0985193621867886,"fieldHeading":0.0,"time":5.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":2.3305694760820046,"fieldY":4.649685649202736,"field_dY":0.3107425968109343,"fieldX":2.485763097949886,"fieldHeading":0.0,"time":6.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":0.5942952164009114,"fieldY":5.670697038724375,"field_dY":1.980984054669704,"fieldX":4.017280182232347,"fieldHeading":0.0,"time":7.0,"field_dHeading":0.0,"derivativesEdited":false},{"field_dX":-1.0875990888382674,"fieldY":6.9802551252847405,"field_dY":0.0,"fieldX":3.1849339407744877,"fieldHeading":0.0,"time":8.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":-1.7074195899772202,"fieldY":6.736100227790436,"field_dY":-0.17923189066059209,"fieldX":2.2970979498861057,"fieldHeading":0.0,"time":9.0,"field_dHeading":0.0,"derivativesEdited":false},{"field_dX":2.0198268792710703,"fieldY":6.76939407744875,"field_dY":0.4217220956719814,"fieldX":1.1762050113895226,"fieldHeading":0.0,"time":10.0,"field_dHeading":0.0,"derivativesEdited":true},{"field_dX":0.04439179954442096,"fieldY":8.00126651480638,"field_dY":1.9088473804100232,"fieldX":2.452469248291572,"fieldHeading":0.0,"time":11.0,"field_dHeading":0.0,"derivativesEdited":true}]}
+{
+  "speedMultiplier": 1.2,
+  "description": "No description provided.",
+  "title": "untitled",
+  "controlPoints": [
+    {
+      "field_dX": 0.13317539863325933,
+      "fieldY": 1.0539498861047853,
+      "field_dY": 0.46611389521640234,
+      "fieldX": 2.3636856492027336,
+      "fieldHeading": 0.0,
+      "time": 0.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.4298693781321168,
+      "fieldY": 2.25,
+      "field_dY": 0.6475632949886103,
+      "fieldX": 2.341489749430525,
+      "fieldHeading": 0.0,
+      "time": 1.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.0,
+      "fieldY": 2.25,
+      "field_dY": 0.22195899772209593,
+      "fieldX": 1.1318132118451034,
+      "fieldHeading": 0.0,
+      "time": 2.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.7795199999999998,
+      "fieldY": 2.7653236363636365,
+      "field_dY": 1.748014545454545,
+      "fieldX": 2.380487272727273,
+      "fieldHeading": 0.0,
+      "time": 3.0,
+      "field_dHeading": -0.011969026996887885,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.1181090909090905,
+      "fieldY": 3.7,
+      "field_dY": 2.4566690909090916,
+      "fieldX": 4.0,
+      "fieldHeading": -0.02176186726706888,
+      "time": 4.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.8434441913439628,
+      "fieldY": 4.65,
+      "field_dY": -0.044391799544419186,
+      "fieldX": 3.0,
+      "fieldHeading": 0.0,
+      "time": 5.0,
+      "field_dHeading": 0.011969026996887885,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.0,
+      "fieldY": 4.572,
+      "field_dY": 0.0,
+      "fieldX": 1.1,
+      "fieldHeading": 0.0,
+      "time": 6.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 2.6267300393456203,
+      "fieldY": 4.5609020501138975,
+      "field_dY": 0.19935953613584267,
+      "fieldX": 2.8741913439635534,
+      "fieldHeading": 0.0,
+      "time": 7.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.14173090909090824,
+      "fieldY": 5.7589963636363635,
+      "field_dY": 2.716509090909092,
+      "fieldX": 3.8804727272727275,
+      "fieldHeading": 0.0,
+      "time": 8.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -2.3,
+      "fieldY": 6.9637090909090915,
+      "field_dY": 0.1181090909090905,
+      "fieldX": 2.95,
+      "fieldHeading": 0.0,
+      "time": 9.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -3.1417018181818186,
+      "fieldY": 6.8928436363636365,
+      "field_dY": -0.09448727272727098,
+      "fieldX": 1.37656,
+      "fieldHeading": 0.0,
+      "time": 10.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": 0.755898181818182,
+      "fieldY": 7.058196363636364,
+      "field_dY": 0.826763636363637,
+      "fieldX": 2.7,
+      "fieldHeading": 0.0,
+      "time": 11.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    },
+    {
+      "field_dX": -0.023621818181818632,
+      "fieldY": 8.629047272727274,
+      "field_dY": 0.47243636363636554,
+      "fieldX": 2.7,
+      "fieldHeading": 0.0,
+      "time": 12.0,
+      "field_dHeading": 0.0,
+      "derivativesEdited": true
+    }
+  ]
+}
