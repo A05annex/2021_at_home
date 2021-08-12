@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.commands.DriveCommandXbox;
 import frc.robot.commands.FollowPathCommand;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.OdometryTargetError;
 import org.a05annex.util.geo2d.KochanekBartelsSpline;
 
@@ -29,6 +30,7 @@ public class RobotContainer {
   //private final DriveCommand m_driveCommand;
   private final DriveCommandXbox m_driveCommandXbox;
   private final OdometryTargetError m_odometryTargetError;
+  private final LimelightSubsystem m_limelightSubsystem;
 
   // controllers
   private final XboxController m_xbox = new XboxController(0);
@@ -75,6 +77,7 @@ public class RobotContainer {
     // subsystems
     m_driveSubsystem = new DriveSubsystem();
     m_odometryTargetError = new OdometryTargetError(m_driveSubsystem);
+    m_limelightSubsystem = new LimelightSubsystem();
 
     // commands
     //m_driveCommand = new DriveCommand(m_stick, m_driveSubsystem);
@@ -138,5 +141,9 @@ public class RobotContainer {
 
   public DriveSubsystem getDriveSubsystem() {
     return m_driveSubsystem;
+  }
+
+  public LimelightSubsystem getLimelightSubsystem() {
+    return m_limelightSubsystem;
   }
 }

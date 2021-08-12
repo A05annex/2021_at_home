@@ -217,6 +217,17 @@ public final class Constants {
     // Maximum change in rotation in 1 command cycle
     public static double DRIVE_MAX_ROTATE_INC = 0.2;
 
+    // Limelight pipeline number
+    public static final int PIPELINE_COLLECTION = 0;
+    public static final int PIPELINE_DRIVER = 1;
+    public static final int PIPELINE_SHOOTER = 2;
+
+    // Limelight angles and heights
+    public static double LIMELIGHT_ANGLE_RAD = 0.70;
+    public static double TARGET_HEIGHT = 2.31;
+    public static double LIMELIGHT_HEIGHT = 0.42;
+    public static double LIMELIGHT_OFFSET = Math.toRadians(2.89);
+
     public enum AutonomousPath {
         BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing_4.json"),
         SLALOM("Slalom", 1, "2021_slalom_3.json"),
