@@ -28,7 +28,7 @@ public class LimelightSubsystem extends SubsystemBase implements IGetTargetError
    */
   public LimelightSubsystem() {
       updateVisionData();
-      setPipeline(Constants.PIPELINE_SHOOTER);
+      setPipeline(Constants.PIPELINE_COLLECTION); //PIPELINE_SHOOTER);
   }
 
   private void updateVisionData() {

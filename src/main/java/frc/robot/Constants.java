@@ -296,10 +296,12 @@ public final class Constants {
     public static final int PIPELINE_SHOOTER = 2;
 
     // Limelight angles and heights
-    public static double LIMELIGHT_ANGLE_RAD = 0.70;
-    public static double TARGET_HEIGHT = 2.31;
-    public static double LIMELIGHT_HEIGHT = 0.42;
+    public static double LIMELIGHT_ANGLE_RAD = 0.337;
+    public static double TARGET_HEIGHT = 2.58; //2.31;
+    public static double LIMELIGHT_HEIGHT = 0.52;
     public static double LIMELIGHT_OFFSET = Math.toRadians(2.89);
+    public static double LIMELIGHT_X_OFFSET = -0.20;
+    public static double LIMELIGHT_Y_OFFSET = 0.14;
 
     // Shooting challenge paths
     public static String FORWARD_PATH_FILE = "shoot_forward.json";
