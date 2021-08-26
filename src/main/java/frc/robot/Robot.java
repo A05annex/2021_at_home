@@ -110,12 +110,12 @@ public class Robot extends TimedRobot {
     m_lastPort0 = dashboardTelemetry(0, "Heading", m_robotContainer.getDriveSubsystem().getFieldHeading(), m_lastPort0);
     m_lastPort1 = dashboardTelemetry(1, "upSpd", ShooterSubsystem.getInstance().getUpperShooterSpeed(), m_lastPort1);
     m_lastPort2 = dashboardTelemetry(2, "lowSpd", ShooterSubsystem.getInstance().getLowerShooterSpeed(), m_lastPort2);
-    m_lastPort3 = dashboardTelemetry(3, "HeadError", m_robotContainer.getLimelightSubsystem().GetTargetHeadingError(), m_lastPort3);
-    m_lastPort4 = dashboardTelemetry(4, "LimeX", m_robotContainer.getLimelightSubsystem().getX(), m_lastPort4);
+    m_lastPort3 = dashboardTelemetry(3, "HeadError", LimelightSubsystem.getInstance().GetTargetHeadingError(), m_lastPort3);
+    m_lastPort4 = dashboardTelemetry(4, "LimeX", LimelightSubsystem.getInstance().getX(), m_lastPort4);
     m_lastPort5 = dashboardTelemetry(5, "ShootkI", Constants.SHOOTER_kI, m_lastPort5);
     m_lastPort6 = dashboardTelemetry(6, "setUpSpd", Constants.SHOOTER_UPPER_SPEED, m_lastPort6);
     m_lastPort7 = dashboardTelemetry(7, "setLowSpd", Constants.SHOOTER_LOWER_SPEED, m_lastPort7);
-    m_lastPort8 = dashboardTelemetry(8, "distance", m_robotContainer.getLimelightSubsystem().distanceToTarget(), m_lastPort8);
+    m_lastPort8 = dashboardTelemetry(8, "distance", LimelightSubsystem.getInstance().distanceToTarget(), m_lastPort8);
     m_lastPort9 = dashboardTelemetry(9, "LowkF", Constants.SHOOTER_kF_LOWER, m_lastPort9);
   }
 
@@ -203,7 +203,7 @@ public class Robot extends TimedRobot {
     }
 
     // set limelight pipeline to shooter pipeline
-    m_robotContainer.getLimelightSubsystem().setPipeline(Constants.PIPELINE_SHOOTER);
+    LimelightSubsystem.getInstance().setPipeline(Constants.PIPELINE_SHOOTER);
   }
 
   /**

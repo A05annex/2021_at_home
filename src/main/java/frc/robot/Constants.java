@@ -272,7 +272,7 @@ public final class Constants {
     // temporary shooter speed for testing
     public static double SHOOTER_UPPER_SPEED = 0.5;
     public static double SHOOTER_LOWER_SPEED = 0.5;
-    static double shooterInc = 0.05;
+    static double shooterInc = 0.01;
     public static void bumpUpperShooterSpeedPlus() {
         SHOOTER_UPPER_SPEED += shooterInc;
         ShooterSubsystem.getInstance().updateAllPID();
@@ -297,7 +297,7 @@ public final class Constants {
 
     // Limelight angles and heights
     public static double LIMELIGHT_ANGLE_RAD = 0.337;
-    public static double TARGET_HEIGHT = 2.58; //2.31;
+    public static double TARGET_HEIGHT = 2.28; //2.31;
     public static double LIMELIGHT_HEIGHT = 0.52;
     public static double LIMELIGHT_OFFSET = Math.toRadians(2.89);
     public static double LIMELIGHT_X_OFFSET = -0.20;

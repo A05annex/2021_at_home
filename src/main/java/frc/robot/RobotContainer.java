@@ -86,7 +86,7 @@ public class RobotContainer {
     m_odometryTargetError = new OdometryTargetError(m_driveSubsystem);
     m_shooterSubsystem = ShooterSubsystem.getInstance();
     m_shooterPneumaticSubsystem = ShooterPneumaticSubsystem.getInstance();
-    m_limelightSubsystem = new LimelightSubsystem();
+    m_limelightSubsystem = LimelightSubsystem.getInstance();
 
     // commands
     //m_driveCommand = new DriveCommand(m_stick, m_driveSubsystem);
@@ -124,6 +124,7 @@ public class RobotContainer {
     m_xboxRightBumper.whenPressed(new ShootCommand());
     m_xboxA.whenPressed(new RunShooterForTimeCommand(60.0));
     m_xboxB.whenHeld(new RunShooter());
+    m_xboxY.whenHeld(new ShootCameraCommand());
 //    m_xboxB.whenPressed(new RunCollectorCommand(1.0));
 //    m_xboxY.whenPressed(new RunCollectorCommand(0.0));
 //    m_xboxX.whenPressed(new RunCollectorCommand(-1.0));
@@ -171,9 +172,5 @@ public class RobotContainer {
 
   public DriveSubsystem getDriveSubsystem() {
     return m_driveSubsystem;
-  }
-
-  public LimelightSubsystem getLimelightSubsystem() {
-    return m_limelightSubsystem;
   }
 }
