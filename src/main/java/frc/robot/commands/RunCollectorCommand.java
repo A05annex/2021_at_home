@@ -32,6 +32,6 @@ public class RunCollectorCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-
+        m_collectorSubsystem.setCollectorPower(0.0);
     }
 }

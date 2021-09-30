@@ -15,13 +15,9 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.commands.*;
-import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.*;
 import frc.robot.commands.SetLimelightPipeline;
-import frc.robot.subsystems.LimelightSubsystem;
-import frc.robot.subsystems.OdometryTargetError;
 import org.a05annex.util.geo2d.KochanekBartelsSpline;
-import frc.robot.subsystems.ShooterPneumaticSubsystem;
-import frc.robot.subsystems.ShooterSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -31,6 +27,7 @@ import frc.robot.subsystems.ShooterSubsystem;
  */
 public class RobotContainer {
 
+  // subsystems
   private final DriveSubsystem m_driveSubsystem;
   private final LimelightSubsystem m_limelightSubsystem;
   //private final DriveCommand m_driveCommand;
@@ -38,6 +35,9 @@ public class RobotContainer {
   private final OdometryTargetError m_odometryTargetError;
   private final ShooterSubsystem m_shooterSubsystem;
   private final ShooterPneumaticSubsystem m_shooterPneumaticSubsystem;
+  private final CollectorSubsystem m_collectorSubsystem;
+
+  // commands
 
   // controllers
   private final XboxController m_xbox = new XboxController(0);
@@ -87,6 +87,7 @@ public class RobotContainer {
     m_shooterSubsystem = ShooterSubsystem.getInstance();
     m_shooterPneumaticSubsystem = ShooterPneumaticSubsystem.getInstance();
     m_limelightSubsystem = LimelightSubsystem.getInstance();
+    m_collectorSubsystem = CollectorSubsystem.getInstance();
 
     // commands
     //m_driveCommand = new DriveCommand(m_stick, m_driveSubsystem);
@@ -122,12 +123,13 @@ public class RobotContainer {
 //    m_xboxA.whenPressed(new FollowPathCommand(Constants.AutonomousPath.load(), m_driveSubsystem));
 
     m_xboxRightBumper.whenPressed(new ShootCommand());
-    m_xboxA.whenPressed(new RunShooterForTimeCommand(60.0));
+//    m_xboxA.whenPressed(new RunShooterForTimeCommand(60.0));
     m_xboxB.whenHeld(new RunShooter());
-    m_xboxY.whenHeld(new ShootCameraCommand());
+//    m_xboxY.whenHeld(new ShootCameraCommand());
 //    m_xboxB.whenPressed(new RunCollectorCommand(1.0));
-//    m_xboxY.whenPressed(new RunCollectorCommand(0.0));
-//    m_xboxX.whenPressed(new RunCollectorCommand(-1.0));
+    m_xboxY.whenPressed(new RunCollectorCommand(0.0));
+    m_xboxX.whenPressed(new RunCollectorCommand(-1.0 * Constants.COLLECTOR_POWER));
+    m_xboxA.whenPressed(new RunCollectorCommand(Constants.COLLECTOR_POWER));
 
     m_button5.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedPlus));
     m_button3.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedMinus));

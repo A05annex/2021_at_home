@@ -303,6 +303,9 @@ public final class Constants {
     public static double LIMELIGHT_X_OFFSET = -0.20;
     public static double LIMELIGHT_Y_OFFSET = 0.14;
 
+    // Collector constants
+    public static double COLLECTOR_POWER = 1.0;
+
     // Shooting challenge paths
     public static String FORWARD_PATH_FILE = "shoot_forward.json";
     public static String BACKWARD_PATH_FILE = "shoot_backward.json";
