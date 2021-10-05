@@ -96,7 +96,8 @@ public final class Constants {
     public enum DRIVERS {
         NOLAN("Nolan", 0, Filesystem.getDeployDirectory().toString() + "/drivers/nolan.json"),
         KALVIN("Kalvin", 1, Filesystem.getDeployDirectory().toString() + "/drivers/kalvin.json"),
-        PROGRAMMERS("programmers", 2,Filesystem.getDeployDirectory().toString() + "/drivers/programmers.json");
+        ARDEN("Arden", 2, Filesystem.getDeployDirectory().toString() + "/drivers/arden.json"),
+        PROGRAMMERS("programmers", 3,Filesystem.getDeployDirectory().toString() + "/drivers/programmers.json");
 
         private static final String USE_CONTROLLER = "USE_CONTROLLER";
         private static final String XBOX_CONTROLLER = "XBOX";
