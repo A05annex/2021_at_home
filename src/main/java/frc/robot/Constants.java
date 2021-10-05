@@ -105,9 +105,12 @@ public final class Constants {
 
     // driver enumerator
     public enum DRIVERS {
+        //Nolan's slot can be reallocated because he has graduated and will not be driving.
         NOLAN("Nolan", 0, Filesystem.getDeployDirectory().toString() + "/drivers/nolan.json"),
         KALVIN("Kalvin", 1, Filesystem.getDeployDirectory().toString() + "/drivers/kalvin.json"),
-        PROGRAMMERS("programmers", 2,Filesystem.getDeployDirectory().toString() + "/drivers/programmers.json");
+        ARDEN("Arden", 2, Filesystem.getDeployDirectory().toString() + "/drivers/arden.json"),
+        // The programmer's driver profile is low gains drive/twist gains because programmers are generally bad drivers
+        PROGRAMMERS("programmers", 3,Filesystem.getDeployDirectory().toString() + "/drivers/programmers.json");
 
         private static final String USE_CONTROLLER = "USE_CONTROLLER";
         private static final String XBOX_CONTROLLER = "XBOX";
