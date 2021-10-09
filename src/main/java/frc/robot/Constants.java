@@ -308,6 +308,10 @@ public final class Constants {
     public static double LIMELIGHT_X_OFFSET = -0.20;
     public static double LIMELIGHT_Y_OFFSET = 0.14;
 
+    // Used in AutoLimelightAdjustCommand
+    public static double LIMELIGHT_RADIAN_THRESHOLD = Math.PI/96;
+    public static int LIMELIGHT_ADJUST_TIMEOUT = 50; // 1 second in ticks
+
     // Collector constants
     public static double COLLECTOR_POWER = 1.0;
 
