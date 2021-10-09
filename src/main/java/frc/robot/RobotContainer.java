@@ -139,6 +139,7 @@ public class RobotContainer {
     m_button11.whenHeld(new RunWinchCommand(-1.0)); // winch robot down
     m_button10.whenPressed(new DeployHookCommand(true));
     m_button9.whenPressed(new DeployHookCommand(false));
+    m_button7.whenPressed(new AutoShootCommand());
 //    m_button8.whenPressed(new InstantCommand(Constants::bumpUpperkFPlus));
 //    m_button7.whenPressed(new InstantCommand(Constants::bumpUpperkFMinus));
   }
