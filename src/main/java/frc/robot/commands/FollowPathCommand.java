@@ -37,6 +37,8 @@ public class FollowPathCommand extends CommandBase {
         m_startTime = System.currentTimeMillis();
         m_pathFollower = m_spline.getPathFollower();
         m_isFinished = false;
+
+        initializeRobotForPath();
     }
 
     /**

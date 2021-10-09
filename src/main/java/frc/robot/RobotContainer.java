@@ -73,7 +73,8 @@ public class RobotContainer {
   private DigitalInput switch3 = new DigitalInput(3);
   private DigitalInput switch4 = new DigitalInput(4);
 
-  private FollowPathCommand m_autonomousCommand = null;
+//  private FollowPathCommand m_autonomousCommand = null;
+  private AutoCommandGroup m_autonomousCommand = null;
   private KochanekBartelsSpline m_autonomousSpline = null;
 
   /**
@@ -100,9 +101,10 @@ public class RobotContainer {
     // set the default autonomous command -
     Constants.AutonomousPath.setAutonomousToId(readAutoID());
     m_autonomousSpline = Constants.AutonomousPath.load();
-    if ( m_autonomousSpline != null) {
-      m_autonomousCommand = new FollowPathCommand(m_autonomousSpline, m_driveSubsystem);
-    }
+//    if ( m_autonomousSpline != null) {
+//      m_autonomousCommand = new FollowPathCommand(m_autonomousSpline, m_driveSubsystem);
+//    }
+    m_autonomousCommand = new AutoCommandGroup(m_autonomousSpline, m_driveSubsystem);
 
     // Configure the button bindings
     configureButtonBindings();
@@ -150,7 +152,7 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public FollowPathCommand getAutonomousCommand() {
+  public AutoCommandGroup getAutonomousCommand() {
     // In this method is called it means the robot are getting ready to run an autonomous path. Before we run tha
     // path we need to make sure the NavX is initialized to the robot heading (which may not be 0.0) and that
     // the swerve drive modules are prepared (oriented in the right direction) for the first command in the path.

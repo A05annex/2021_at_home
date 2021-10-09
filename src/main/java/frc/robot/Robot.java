@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.AutoCommandGroup;
 import frc.robot.commands.FollowPathCommand;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
@@ -19,7 +20,7 @@ import frc.robot.subsystems.ShooterSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-  private FollowPathCommand m_autonomousCommand;
+  private AutoCommandGroup m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
 
@@ -180,7 +181,7 @@ public class Robot extends TimedRobot {
       // if we have an autonomous command, it has a path that assumes some initial robot position and heading, and
       // will start the robot with some forward, strafe, and rotation. We have to set all of those things before
       // we actually ask the robot to start moving if we want it to start moving in the right direction.
-      m_autonomousCommand.initializeRobotForPath();
+//      m_autonomousCommand.initializeRobotForPath();
       m_autonomousCommand.schedule();
     }
   }
