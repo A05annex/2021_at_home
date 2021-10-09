@@ -320,17 +320,17 @@ public final class Constants {
     public static String BACKWARD_PATH_FILE = "shoot_backward.json";
 
     public enum AutonomousPath {
-        BARREL_RACING("Barrel Racing", 0, "2021_barrel_racing.json"),
-        SLALOM("Slalom", 1, "2021_slalom.json"),
-        BOUNCE("Short Slalom", 2, "2021_slalom_short.json"),
-        LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),
-        CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
-        CAL_CIRCLE_2("cal circle 2", 5, "cal_circle_2.json"),
-        CAL_STRAIGHT("cal straight", 6, "cal_straight.json"),
-        CAL_ROTATE("cal rotate", 7, "cal_rotate.json"),
-        SHOOT_FORWARD("shoot forward", 8, "shoot_forward.json");
+        BARREL_RACING("Target Forward", 0, "RobotRodeoTargetForward.json"),
+        SLALOM("Center Shoot", 1, "RobotRodeoCenterPosition.json"),
+        BOUNCE("Target Shoot", 2, "RobotRodeoTargetPosition.json");
+//        LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),
+//        CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
+//        CAL_CIRCLE_2("cal circle 2", 5, "cal_circle_2.json"),
+//        CAL_STRAIGHT("cal straight", 6, "cal_straight.json"),
+//        CAL_ROTATE("cal rotate", 7, "cal_rotate.json"),
+//        SHOOT_FORWARD("shoot forward", 8, "shoot_forward.json");
 
-        static AutonomousPath AUTONOMOUS_PATH = AutonomousPath.CAL_STRAIGHT;
+        static AutonomousPath AUTONOMOUS_PATH = AutonomousPath.BARREL_RACING;
 
         private final String m_pathName;
         private final int m_id;
@@ -362,7 +362,7 @@ public final class Constants {
         }
 
         public static void setAutonomousToId(int id) {
-            AUTONOMOUS_PATH = AutonomousPath.CAL_STRAIGHT;
+            AUTONOMOUS_PATH = AutonomousPath.BARREL_RACING;
             for (AutonomousPath path : values()) {
                 if (path.m_id == id) {
                     AUTONOMOUS_PATH = path;
