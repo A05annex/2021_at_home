@@ -275,9 +275,9 @@ public final class Constants {
     }
 
     // temporary shooter speed for testing
-    public static double SHOOTER_UPPER_SPEED = 0.5;
-    public static double SHOOTER_LOWER_SPEED = 0.5;
-    static double shooterInc = 0.01;
+    public static double SHOOTER_UPPER_SPEED = 0.65;
+    public static double SHOOTER_LOWER_SPEED = 0.65;
+    static double shooterInc = 0.02;
     public static void bumpUpperShooterSpeedPlus() {
         SHOOTER_UPPER_SPEED += shooterInc;
         ShooterSubsystem.getInstance().updateAllPID();
@@ -320,10 +320,10 @@ public final class Constants {
     public static String BACKWARD_PATH_FILE = "shoot_backward.json";
 
     public enum AutonomousPath {
-        BARREL_RACING("Target Forward", 0, "RobotRodeoTargetForward.json"),
+        BARREL_RACING("Center Forward", 0, "RobotRodeoCenterForward.json"),
         SLALOM("Center Shoot", 1, "RobotRodeoCenterPosition.json"),
-        BOUNCE("Target Shoot", 2, "RobotRodeoTargetPosition.json");
-//        LIGHTSPEED("Short Slow Slalom", 3, "2021_slalom_short_1.json"),
+        BOUNCE("Target Shoot", 2, "RobotRodeoTargetPosition.json"),
+        LIGHTSPEED("Far Backward", 3, "RobotRodeoFarBackward.json");
 //        CAL_CIRCLE_1("cal circle 1", 4, "cal_circle_1.json"),
 //        CAL_CIRCLE_2("cal circle 2", 5, "cal_circle_2.json"),
 //        CAL_STRAIGHT("cal straight", 6, "cal_straight.json"),
