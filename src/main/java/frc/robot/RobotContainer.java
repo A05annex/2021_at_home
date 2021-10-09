@@ -135,10 +135,10 @@ public class RobotContainer {
     m_button3.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedMinus));
     m_button6.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedPlus));
     m_button4.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedMinus));
-//    m_button12.whenPressed(new InstantCommand(Constants::bumpkPPlus));
-//    m_button11.whenPressed(new InstantCommand(Constants::bumpkPMinus));
-//    m_button10.whenPressed(new InstantCommand(Constants::bumpLowerkFPlus));
-//    m_button9.whenPressed(new InstantCommand(Constants::bumpLowerkFMinus));
+    m_button12.whenHeld(new RunWinchCommand(1.0));  // winch robot up
+    m_button11.whenHeld(new RunWinchCommand(-1.0)); // winch robot down
+    m_button10.whenPressed(new DeployHookCommand(true));
+    m_button9.whenPressed(new DeployHookCommand(false));
 //    m_button8.whenPressed(new InstantCommand(Constants::bumpUpperkFPlus));
 //    m_button7.whenPressed(new InstantCommand(Constants::bumpUpperkFMinus));
   }

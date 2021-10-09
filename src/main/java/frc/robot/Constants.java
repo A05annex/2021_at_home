@@ -40,11 +40,13 @@ public final class Constants {
             LF_SPIN = 8,
             SWEEPER = 9,
             SHOOTER_LOWER = 11,
+            WINCH = 12,
             SHOOTER_UPPER = 15;
-    }
+   }
 
     public static final class Pneumatics {
         public static final int
+            HOOK = 2,
             SHOOTER = 3;
     }
 
