@@ -206,23 +206,23 @@ public final class Constants {
     }
 
     // used in DriveCommand
-    public static DRIVERS currentDriver = DRIVERS.KALVIN;
+    public static DRIVERS currentDriver = DRIVERS.ARDEN;
 
     public static String USE_CONTROLLER = DRIVERS.XBOX_CONTROLLER;
 
-    public static double DRIVE_DEADBAND = 0.1;
-    public static double DRIVE_SPEED_SENSITIVITY = 2.0;
-    public static double DRIVE_SPEED_GAIN = 0.8;
+    public static double DRIVE_DEADBAND = 0.05;
+    public static double DRIVE_SPEED_SENSITIVITY = 3.0;
+    public static double DRIVE_SPEED_GAIN = 1.0;
 
-    public static double TWIST_DEADBAND = 0.1;
+    public static double TWIST_DEADBAND = 0.05;
     public static double TWIST_SENSITIVITY = 2.0;
-    public static double TWIST_GAIN = 1.0;
+    public static double TWIST_GAIN = 0.8;
 
     public static double DRIVE_ORIENTATION_kP = 1.2;
     // Maximum change in speed in 1 command cycle
-    public static double DRIVE_MAX_SPEED_INC = 0.25;
+    public static double DRIVE_MAX_SPEED_INC = 0.075;
     // Maximum change in rotation in 1 command cycle
-    public static double DRIVE_MAX_ROTATE_INC = 0.25;
+    public static double DRIVE_MAX_ROTATE_INC = 0.075;
 
     // small number for zero check
     public static final double SMALL = 0.000001;
