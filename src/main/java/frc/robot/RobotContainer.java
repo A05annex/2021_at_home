@@ -48,7 +48,7 @@ public class RobotContainer {
   private final POVButton m_xboxDpadLeft = new POVButton(m_xbox, 270);
   private final POVButton m_xboxDpadDown = new POVButton(m_xbox, 180);
   private final POVButton m_xboxDpadRight = new POVButton(m_xbox, 90);
-  private final JoystickButton m_xboxA = new JoystickButton(m_xbox, 1);
+  private final JoystickButton m_xboxA = new JoystickButton(m_xbox, 1); // used for slowed gain
   private final JoystickButton m_xboxB = new JoystickButton(m_xbox, 2);
   private final JoystickButton m_xboxX = new JoystickButton(m_xbox, 3);
   private final JoystickButton m_xboxY = new JoystickButton(m_xbox, 4);
@@ -129,9 +129,9 @@ public class RobotContainer {
     m_xboxB.whenHeld(new RunShooter());
 //    m_xboxY.whenHeld(new ShootCameraCommand());
 //    m_xboxB.whenPressed(new RunCollectorCommand(1.0));
-    m_xboxY.whenPressed(new RunCollectorCommand(0.0));
-    m_xboxX.whenPressed(new RunCollectorCommand(-1.0 * Constants.COLLECTOR_POWER));
-    m_xboxA.whenPressed(new RunCollectorCommand(Constants.COLLECTOR_POWER));
+//    m_xboxY.whenPressed(new RunCollectorCommand(0.0));
+//    m_xboxX.whenPressed(new RunCollectorCommand(-1.0 * Constants.COLLECTOR_POWER));
+//    m_xboxA.whenPressed(new RunCollectorCommand(Constants.COLLECTOR_POWER));
 
     m_button5.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedPlus));
     m_button3.whenPressed(new InstantCommand(Constants::bumpUpperShooterSpeedMinus));
@@ -139,10 +139,10 @@ public class RobotContainer {
     m_button4.whenPressed(new InstantCommand(Constants::bumpLowerShooterSpeedMinus));
     m_button12.whenHeld(new RunWinchCommand(1.0));  // winch robot up
     m_button11.whenHeld(new RunWinchCommand(-1.0)); // winch robot down
-    m_button10.whenPressed(new DeployHookCommand(true));
-    m_button9.whenPressed(new DeployHookCommand(false));
-    m_button7.whenPressed(new AutoShootCommand());
-    m_button8.whenPressed(new AutoLimelightAdjustCommand(m_driveSubsystem));
+    m_button10.whenPressed(new DeployHookCommand(true)); // engage hook pneumatics
+    m_button9.whenPressed(new DeployHookCommand(false)); // release hook pneumatics
+//    m_button7.whenPressed(new AutoShootCommand());
+//    m_button8.whenPressed(new AutoLimelightAdjustCommand(m_driveSubsystem));
 //    m_button8.whenPressed(new InstantCommand(Constants::bumpUpperkFPlus));
 //    m_button7.whenPressed(new InstantCommand(Constants::bumpUpperkFMinus));
   }

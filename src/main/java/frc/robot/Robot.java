@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
   private double m_lastPort2 = -1.0;
   private double m_lastPort3 = -1.0;
   private double m_lastPort4 = -1.0;
-  private double m_lastPort5 = -1.0;
+  private String m_lastPort5 = "";
   private double m_lastPort6 = -1.0;
   private double m_lastPort7 = -1.0;
   private double m_lastPort8 = -1.0;
@@ -113,7 +113,7 @@ public class Robot extends TimedRobot {
     m_lastPort2 = dashboardTelemetry(2, "lowSpd", ShooterSubsystem.getInstance().getLowerShooterSpeed(), m_lastPort2);
     m_lastPort3 = dashboardTelemetry(3, "HeadError", LimelightSubsystem.getInstance().GetTargetHeadingError(), m_lastPort3);
     m_lastPort4 = dashboardTelemetry(4, "LimeX", LimelightSubsystem.getInstance().getX(), m_lastPort4);
-    m_lastPort5 = dashboardTelemetry(5, "ShootkI", Constants.SHOOTER_kI, m_lastPort5);
+    m_lastPort5 = dashboardTelemetry(5, "Auto", Constants.AutonomousPath.getName(), m_lastPort5);
     m_lastPort6 = dashboardTelemetry(6, "setUpSpd", Constants.SHOOTER_UPPER_SPEED, m_lastPort6);
     m_lastPort7 = dashboardTelemetry(7, "setLowSpd", Constants.SHOOTER_LOWER_SPEED, m_lastPort7);
     m_lastPort8 = dashboardTelemetry(8, "distance", LimelightSubsystem.getInstance().distanceToTarget(), m_lastPort8);

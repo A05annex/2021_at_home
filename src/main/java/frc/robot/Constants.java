@@ -213,6 +213,7 @@ public final class Constants {
     public static double DRIVE_DEADBAND = 0.05;
     public static double DRIVE_SPEED_SENSITIVITY = 3.0;
     public static double DRIVE_SPEED_GAIN = 1.0;
+    public static double DRIVE_SPEED_GAIN_SLOW = 0.5;
 
     public static double TWIST_DEADBAND = 0.05;
     public static double TWIST_SENSITIVITY = 2.0;
@@ -275,8 +276,8 @@ public final class Constants {
     }
 
     // temporary shooter speed for testing
-    public static double SHOOTER_UPPER_SPEED = 0.65;
-    public static double SHOOTER_LOWER_SPEED = 0.65;
+    public static double SHOOTER_UPPER_SPEED = 0.6;
+    public static double SHOOTER_LOWER_SPEED = 0.6;
     static double shooterInc = 0.02;
     public static void bumpUpperShooterSpeedPlus() {
         SHOOTER_UPPER_SPEED += shooterInc;

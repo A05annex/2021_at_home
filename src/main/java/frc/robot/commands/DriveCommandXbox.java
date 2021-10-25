@@ -82,8 +82,12 @@ public class DriveCommandXbox extends CommandBase {
       }
       speed = (distance - Constants.DRIVE_DEADBAND) / (1.0 - Constants.DRIVE_DEADBAND);
     }
-    // add gain and sensitivity
-    speed = Math.pow(speed, Constants.DRIVE_SPEED_SENSITIVITY) * Constants.DRIVE_SPEED_GAIN;
+    // add gain and sensitivity, slow gain if holding A
+    if (m_xbox.getRawButton(1)) {
+      speed = Math.pow(speed, Constants.DRIVE_SPEED_SENSITIVITY) * Constants.DRIVE_SPEED_GAIN_SLOW;
+    } else {
+      speed = Math.pow(speed, Constants.DRIVE_SPEED_SENSITIVITY) * Constants.DRIVE_SPEED_GAIN;
+    }
 
     // either do rotation with right stick, or PID to last expected heading
     double rotation;
