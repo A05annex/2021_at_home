@@ -26,98 +26,102 @@ public class Robot extends TimedRobot {
 
   private NavX m_navx;
 
-  // Telemetry variables
-  private double m_lastPort0 = 1000.0;
-  private double m_lastPort1 = -1.0;
-  private double m_lastPort2 = -1.0;
-  private double m_lastPort3 = -1.0;
-  private double m_lastPort4 = -1.0;
-  private String m_lastPort5 = "";
-  private double m_lastPort6 = -1.0;
-  private double m_lastPort7 = -1.0;
-  private double m_lastPort8 = -1.0;
-  private double m_lastPort9 = -1.0;
-
-  /**
-   * Update telemetry feedback for a real number value. If the value has not changed, no update is sent
-   *
-   * @param port      (int) The port 0 - 9 to write to.
-   * @param key       (String) The key for the telemetry.
-   * @param var       (double) The number to be reported.
-   * @param lastValue (double) The last value reported.
-   * @return (double) Returns {@code var}
-   */
-  @SuppressWarnings("unused")
-  private double dashboardTelemetry(int port, String key, double var, double lastValue) {
-    if (var != lastValue) {
-      SmartDashboard.putString(String.format("DB/String %d", port), String.format("%s: %10.6f", key, var));
-    }
-    return var;
-  }
-
-  /**
-   * Update telemetry feedback for an integer value. If the value has not changed, no update is sent
-   *
-   * @param port      (int) The port 0 - 9 to write to.
-   * @param key       (String) The key for the telemetry.
-   * @param var       (int) The integer to be reported.
-   * @param lastValue (int) The last value reported.
-   * @return (int) Returns {@code var}
-   */
-  @SuppressWarnings("unused")
-  private int dashboardTelemetry(int port, String key, int var, int lastValue) {
-    if (var != lastValue) {
-      SmartDashboard.putString(String.format("DB/String %d", port), String.format("%s: %d", key, var));
-    }
-    return var;
-  }
-
-  /**
-   * Update telemetry feedback for a string value. If the value has not changed, no update is sent
-   *
-   * @param port      (int) The port 0 - 9 to write to.
-   * @param key       (String) The key for the telemetry.
-   * @param var       (String) The string to be reported.
-   * @param lastValue (String) The last value reported.
-   * @return (String) Returns {@code var}
-   */
-  @SuppressWarnings("unused")
-  private String dashboardTelemetry(int port, String key, String var, String lastValue) {
-    if ((var != lastValue) && !var.equals(lastValue)) {
-      SmartDashboard.putString(String.format("DB/String %d", port), String.format("%s: %s", key, var));
-    }
-    return var;
-  }
-
-  /**
-   * Update telemetry feedback for a boolean value. If the value has not changed, no update is sent
-   *
-   * @param port      (int) The port 0 - 9 to write to.
-   * @param key       (String) The key for the telemetry.
-   * @param var       (boolean) The boolean to be reported.
-   * @param lastValue (boolean) The last value reported.
-   * @return (boolean) Returns {@code var}
-   */
-  @SuppressWarnings("unused")
-  private boolean dashboardTelemetry(int port, String key, boolean var, boolean lastValue) {
-    if (var != lastValue) {
-      SmartDashboard.putString(String.format("DB/String %d", port),
-          String.format("%s: %s", key, var ? "on" : "off"));
-    }
-    return var;
-  }
+//  // Telemetry variables
+//  private double m_lastPort0 = 1000.0;
+//  private double m_lastPort1 = -1.0;
+//  private double m_lastPort2 = -1.0;
+//  private double m_lastPort3 = -1.0;
+//  private double m_lastPort4 = -1.0;
+//  private String m_lastPort5 = "";
+//  private double m_lastPort6 = -1.0;
+//  private double m_lastPort7 = -1.0;
+//  private double m_lastPort8 = -1.0;
+//  private double m_lastPort9 = -1.0;
+//
+//  /**
+//   * Update telemetry feedback for a real number value. If the value has not changed, no update is sent
+//   *
+//   * @param port      (int) The port 0 - 9 to write to.
+//   * @param key       (String) The key for the telemetry.
+//   * @param var       (double) The number to be reported.
+//   * @param lastValue (double) The last value reported.
+//   * @return (double) Returns {@code var}
+//   */
+//  @SuppressWarnings("unused")
+//  private double dashboardTelemetry(int port, String key, double var, double lastValue) {
+//    if (var != lastValue) {
+//      SmartDashboard.putString(String.format("DB/String %d", port), String.format("%s: %10.6f", key, var));
+//    }
+//    return var;
+//  }
+//
+//  /**
+//   * Update telemetry feedback for an integer value. If the value has not changed, no update is sent
+//   *
+//   * @param port      (int) The port 0 - 9 to write to.
+//   * @param key       (String) The key for the telemetry.
+//   * @param var       (int) The integer to be reported.
+//   * @param lastValue (int) The last value reported.
+//   * @return (int) Returns {@code var}
+//   */
+//  @SuppressWarnings("unused")
+//  private int dashboardTelemetry(int port, String key, int var, int lastValue) {
+//    if (var != lastValue) {
+//      SmartDashboard.putString(String.format("DB/String %d", port), String.format("%s: %d", key, var));
+//    }
+//    return var;
+//  }
+//
+//  /**
+//   * Update telemetry feedback for a string value. If the value has not changed, no update is sent
+//   *
+//   * @param port      (int) The port 0 - 9 to write to.
+//   * @param key       (String) The key for the telemetry.
+//   * @param var       (String) The string to be reported.
+//   * @param lastValue (String) The last value reported.
+//   * @return (String) Returns {@code var}
+//   */
+//  @SuppressWarnings("unused")
+//  private String dashboardTelemetry(int port, String key, String var, String lastValue) {
+//    if ((var != lastValue) && !var.equals(lastValue)) {
+//      SmartDashboard.putString(String.format("DB/String %d", port), String.format("%s: %s", key, var));
+//    }
+//    return var;
+//  }
+//
+//  /**
+//   * Update telemetry feedback for a boolean value. If the value has not changed, no update is sent
+//   *
+//   * @param port      (int) The port 0 - 9 to write to.
+//   * @param key       (String) The key for the telemetry.
+//   * @param var       (boolean) The boolean to be reported.
+//   * @param lastValue (boolean) The last value reported.
+//   * @return (boolean) Returns {@code var}
+//   */
+//  @SuppressWarnings("unused")
+//  private boolean dashboardTelemetry(int port, String key, boolean var, boolean lastValue) {
+//    if (var != lastValue) {
+//      SmartDashboard.putString(String.format("DB/String %d", port),
+//          String.format("%s: %s", key, var ? "on" : "off"));
+//    }
+//    return var;
+//  }
+//
+//  private void displayTelemetry() {
+//    m_lastPort0 = dashboardTelemetry(0, "Heading", m_robotContainer.getDriveSubsystem().getFieldHeading(), m_lastPort0);
+//    m_lastPort1 = dashboardTelemetry(1, "upSpd", ShooterSubsystem.getInstance().getUpperShooterSpeed(), m_lastPort1);
+//    m_lastPort2 = dashboardTelemetry(2, "lowSpd", ShooterSubsystem.getInstance().getLowerShooterSpeed(), m_lastPort2);
+//    m_lastPort3 = dashboardTelemetry(3, "HeadError", LimelightSubsystem.getInstance().GetTargetHeadingError(), m_lastPort3);
+//    m_lastPort4 = dashboardTelemetry(4, "LimeX", LimelightSubsystem.getInstance().getX(), m_lastPort4);
+//    m_lastPort5 = dashboardTelemetry(5, "Auto", Constants.AutonomousPath.getName(), m_lastPort5);
+//    m_lastPort6 = dashboardTelemetry(6, "setUpSpd", Constants.SHOOTER_UPPER_SPEED, m_lastPort6);
+//    m_lastPort7 = dashboardTelemetry(7, "setLowSpd", Constants.SHOOTER_LOWER_SPEED, m_lastPort7);
+//    m_lastPort8 = dashboardTelemetry(8, "distance", LimelightSubsystem.getInstance().distanceToTarget(), m_lastPort8);
+//    m_lastPort9 = dashboardTelemetry(9, "LowkF", Constants.SHOOTER_kF_LOWER, m_lastPort9);
+//  }
 
   private void displayTelemetry() {
-    m_lastPort0 = dashboardTelemetry(0, "Heading", m_robotContainer.getDriveSubsystem().getFieldHeading(), m_lastPort0);
-    m_lastPort1 = dashboardTelemetry(1, "upSpd", ShooterSubsystem.getInstance().getUpperShooterSpeed(), m_lastPort1);
-    m_lastPort2 = dashboardTelemetry(2, "lowSpd", ShooterSubsystem.getInstance().getLowerShooterSpeed(), m_lastPort2);
-    m_lastPort3 = dashboardTelemetry(3, "HeadError", LimelightSubsystem.getInstance().GetTargetHeadingError(), m_lastPort3);
-    m_lastPort4 = dashboardTelemetry(4, "LimeX", LimelightSubsystem.getInstance().getX(), m_lastPort4);
-    m_lastPort5 = dashboardTelemetry(5, "Auto", Constants.AutonomousPath.getName(), m_lastPort5);
-    m_lastPort6 = dashboardTelemetry(6, "setUpSpd", Constants.SHOOTER_UPPER_SPEED, m_lastPort6);
-    m_lastPort7 = dashboardTelemetry(7, "setLowSpd", Constants.SHOOTER_LOWER_SPEED, m_lastPort7);
-    m_lastPort8 = dashboardTelemetry(8, "distance", LimelightSubsystem.getInstance().distanceToTarget(), m_lastPort8);
-    m_lastPort9 = dashboardTelemetry(9, "LowkF", Constants.SHOOTER_kF_LOWER, m_lastPort9);
+    SmartDashboard.putNumber("Heading", m_robotContainer.getDriveSubsystem().getFieldHeading());
   }
 
   /**
