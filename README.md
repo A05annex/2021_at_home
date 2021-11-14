@@ -1,5 +1,8 @@
 # 2021_at_home - Robot Rodeo - 9-Oct-2021
 
+This branch is to test using the limelight to generate the telemetry that let's us
+predict where the robot is on the field.
+
 Added a lift mechanism, added code for that and for real autonomous.
 
 ## Driver Control
