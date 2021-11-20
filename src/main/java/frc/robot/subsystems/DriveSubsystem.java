@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.DriveModule;
@@ -356,5 +357,16 @@ public class DriveSubsystem extends SubsystemBase {
         m_lastChassisStrafe = m_thisChassisStrafe;
         m_lastChassisRotation = m_thisChassisRotation;
         m_lastTime = now;
+    }
+
+    public void printModuleEncoders() {
+        SmartDashboard.putNumber("Right Front Analog", m_rf.getAnalogEncoderPosition());
+        SmartDashboard.putNumber("Right Front Drive", m_rf.getDriveEncoderPosition());
+        SmartDashboard.putNumber("Left Front Analog", m_lf.getAnalogEncoderPosition());
+        SmartDashboard.putNumber("Left Front Drive", m_lf.getDriveEncoderPosition());
+        SmartDashboard.putNumber("Right Rear Analog", m_rr.getAnalogEncoderPosition());
+        SmartDashboard.putNumber("Right Rear Drive", m_rr.getDriveEncoderPosition());
+        SmartDashboard.putNumber("Left Rear Analog", m_lr.getAnalogEncoderPosition());
+        SmartDashboard.putNumber("Left Rear Drive", m_lr.getDriveEncoderPosition());
     }
 }
