@@ -6,8 +6,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Filesystem;
 import frc.robot.subsystems.ShooterSubsystem;
+import org.a05annex.util.AngleD;
 import org.a05annex.util.Utl;
 import org.a05annex.util.geo2d.KochanekBartelsSpline;
+import org.a05annex.util.geo3d.Point3d;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
@@ -296,22 +298,45 @@ public final class Constants {
         ShooterSubsystem.getInstance().updateAllPID();
     }
 
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // ---- Limelight information and control                                                                       ----
+    // -----------------------------------------------------------------------------------------------------------------
+    // Limelight targets for the infinite recharge game
+    public static final String HEX_GOAL_ID = "hex goal";
+    public static final Point3d HEX_GOAL_CENTER = new Point3d( 1.7085, 7.99, 2.5);
+    public static final Point3d HEX_GOAL_LIMELIGHT_TAPE_UL = new Point3d( 1.21, 7.99, 2.5);
+    public static final Point3d HEX_GOAL_LIMELIGHT_TAPE_LR = new Point3d( 2.1870, 7.99, 2.0625);
+
+    public static final String OP_HEX_GOAL_ID = "opposition hex goal";
+    public static final Point3d OP_HEX_GOAL_CENTER = new Point3d(-1.7085, -7.99, 2.5);
+    public static final Point3d OP_HEX_GOAL_LIMELIGHT_TAPE_UL = new Point3d(-1.21, -7.99, 2.5);
+    public static final Point3d OP_HEX_GOAL_LIMELIGHT_TAPE_LR = new Point3d(-2.1870, -7.99, 2.0625);
+
     // Limelight pipeline number
     public static final int PIPELINE_COLLECTION = 0;
     public static final int PIPELINE_DRIVER = 1;
     public static final int PIPELINE_SHOOTER = 2;
 
-    // Limelight angles and heights
-    public static double LIMELIGHT_ANGLE_RAD = 0.337;
+    // Limelight geometry on the robot
+    public static final AngleD LIMELIGHT_ELEVATION_ANGLE = new AngleD(AngleD.RADIANS,0.337);
+    public static final AngleD LIMELIGHT_ROTATION_ANGLE = new AngleD(AngleD.RADIANS,0.0);
+    public static final double LIMELIGHT_X_OFFSET = -0.20;
+    public static final double LIMELIGHT_Y_OFFSET = 0.14;
+    public static final double LIMELIGHT_Z_OFFSET = 0.52;
+
+
     public static double TARGET_HEIGHT = 2.28; //2.31;
-    public static double LIMELIGHT_HEIGHT = 0.52;
+
     public static double LIMELIGHT_OFFSET = Math.toRadians(2.89);
-    public static double LIMELIGHT_X_OFFSET = -0.20;
-    public static double LIMELIGHT_Y_OFFSET = 0.14;
 
     // Used in AutoLimelightAdjustCommand
     public static double LIMELIGHT_RADIAN_THRESHOLD = Math.PI/96;
     public static int LIMELIGHT_ADJUST_TIMEOUT = 50; // 1 second in ticks
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // ---- Controlling the collector                                                              ----
+    // -----------------------------------------------------------------------------------------------------------------
 
     // Collector constants
     public static double COLLECTOR_POWER = 1.0;

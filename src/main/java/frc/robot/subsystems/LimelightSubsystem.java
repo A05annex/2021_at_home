@@ -10,9 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-import com.fasterxml.jackson.databind.deser.impl.SetterlessProperty;
-
-import edu.wpi.first.networktables.NetworkTable; 
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import org.a05annex.util.Utl;
@@ -97,7 +95,8 @@ public class LimelightSubsystem extends SubsystemBase implements IGetTargetError
   }
 
   public double distanceToTarget() {
-    return (Constants.TARGET_HEIGHT - Constants.LIMELIGHT_HEIGHT) / Math.tan(Constants.LIMELIGHT_ANGLE_RAD + m_y);
+    return (Constants.TARGET_HEIGHT - Constants.LIMELIGHT_Z_OFFSET) /
+            Math.tan(Constants.LIMELIGHT_ELEVATION_ANGLE.getRadians() + m_y);
     
   }
 
