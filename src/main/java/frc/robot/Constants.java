@@ -60,10 +60,14 @@ public final class Constants {
 
     public static final class CalibrationOffset {
         public static final double
-                RF = 0.916,
-                RR = 0.980,
-                LR = 0.774,
-                LF = 0.853;
+//                RF = 0.916,
+//                RR = 0.980,
+//                LR = 0.774,
+//                LF = 0.853;
+                RF = 0.166,
+                RR = 0.061,
+                LR = 0.716,
+                LF = 0.031;
     }
 
     // This is the maximum velocity read by the encoders being used to control the drive speed. The actual
