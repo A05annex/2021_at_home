@@ -66,8 +66,8 @@ public final class Constants {
 //                LF = 0.853;
                 RF = 0.166,
                 RR = 0.061,
-                LR = 0.716,
-                LF = 0.031;
+                LR = 0.216,
+                LF = 0.531;
     }
 
     // This is the maximum velocity read by the encoders being used to control the drive speed. The actual
